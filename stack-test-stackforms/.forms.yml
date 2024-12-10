@@ -1,0 +1,41 @@
+---
+version: "2"
+use_cases:
+- name: "default"
+  sections:
+  - name: "pipeline"
+    groups:
+    - name: "config"
+      technologies:
+      - "pipeline"
+      vars:
+      - name: "Message"
+        description: "Message to display in the job"
+        key: "message"
+        widget: "simple_text"
+        type: "string"
+        default: "hello world and especially to ($ .organization_canonical $)"
+  - name: "section with spaces"
+    groups:
+    - name: "group with spaces"
+      technologies:
+      - "pipeline"
+      vars:
+      - name: "Variables name with spaces"
+        description: "Message to display in the job"
+        key: "no_spaces"
+        widget: "simple_text"
+        type: "string"
+        default: "osef"
+  - name: "section spaces AND CAPS"
+    groups:
+    - name: "group spaces AND CAPS"
+      technologies:
+      - "pipeline"
+      vars:
+      - name: "Variables name spaces AND CAPS"
+        description: "Message to display in the job"
+        key: "no_spaces_no_caps"
+        widget: "simple_text"
+        type: "string"
+        default: "osef"
