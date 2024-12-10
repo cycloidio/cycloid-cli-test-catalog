@@ -2,7 +2,7 @@
 name: "CLI e2e stackforms tests"
 canonical: "stack-e2e-stackforms"
 description: |
-  This stack is a dummy stack which contain only a hello world pipeline.
+  This stack is made for testing stackforms value update via the CLI.
 keywords:
 - "concourse"
 - "dummy"
