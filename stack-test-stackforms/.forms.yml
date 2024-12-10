@@ -3,18 +3,56 @@ version: "2"
 use_cases:
 - name: "default"
   sections:
-  - name: "pipeline"
+  - name: "types"
     groups:
-    - name: "config"
+    - name: "tests"
       technologies:
       - "pipeline"
       vars:
-      - name: "Message"
-        description: "Message to display in the job"
-        key: "message"
+      - name: "String"
+        key: "string"
         widget: "simple_text"
         type: "string"
-        default: "hello world and especially to ($ .organization_canonical $)"
+        default: "stringValue"
+      - name: "Bool"
+        key: "bool"
+        widget: "switch"
+        type: "boolean"
+        default: false
+      - name: "Integer"
+        key: "integer"
+        widget: "number"
+        type: "integer"
+        default: 1
+      - name: "Float"
+        key: "float"
+        widget: "number"
+        type: "float"
+        default: 0.1
+      - name: "Map"
+        key: "map"
+        widget: "text_area"
+        type: "map"
+        default:
+          string: "string"
+          bool: false
+          integer: 1
+          float: 0.1
+          nested:
+            map: "hello"
+          array:
+          - "hello"
+          - "world"
+      - name: "Array"
+        key: "array"
+        widget: "text_area"
+        type: "array"
+        default:
+        - "hello"
+        - "world"
+        - false
+        - 1
+        - 1.1
   - name: "section with spaces"
     groups:
     - name: "group with spaces"
