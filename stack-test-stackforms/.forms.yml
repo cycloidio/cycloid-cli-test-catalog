@@ -77,3 +77,29 @@ use_cases:
         widget: "simple_text"
         type: "string"
         default: "osef"
+
+  - name: "can two sections have same name with different caps ?"
+    groups:
+    - name: "can two groups have same name with different caps ?"
+      technologies:
+      - "pipeline"
+      vars:
+      - name: "Variables name spaces AND CAPS"
+        description: "Message to display in the job"
+        key: "group1"
+        widget: "simple_text"
+        type: "string"
+        default: "osef"
+
+  - name: "CAN TWO SECTIONS HAVE SAME NAME WITH DIFFERENT CAPS ?"
+    groups:
+    - name: "CAN TWO GROUPS HAVE SAME NAME WITH DIFFERENT CAPS ?"
+      technologies:
+      - "pipeline"
+      vars:
+      - name: "Variables name spaces AND CAPS"
+        description: "Message to display in the job"
+        key: "group2"
+        widget: "simple_text"
+        type: "string"
+        default: "osef"
