@@ -1,0 +1,105 @@
+---
+version: "2"
+use_cases:
+- name: "default"
+  sections:
+  - name: "types"
+    groups:
+    - name: "tests"
+      technologies:
+      - "pipeline"
+      vars:
+      - name: "String"
+        key: "string"
+        widget: "simple_text"
+        type: "string"
+        default: "stringValue"
+      - name: "Bool"
+        key: "bool"
+        widget: "switch"
+        type: "boolean"
+        default: false
+      - name: "Integer"
+        key: "integer"
+        widget: "number"
+        type: "integer"
+        default: 1
+      - name: "Float"
+        key: "float"
+        widget: "number"
+        type: "float"
+        default: 0.1
+      - name: "Map"
+        key: "map"
+        widget: "text_area"
+        type: "map"
+        default:
+          string: "string"
+          bool: false
+          integer: 1
+          float: 0.1
+          nested:
+            map: "hello"
+          array:
+          - "hello"
+          - "world"
+      - name: "Array"
+        key: "array"
+        widget: "text_area"
+        type: "array"
+        default:
+        - "hello"
+        - "world"
+        - false
+        - 1
+        - 1.1
+  - name: "section with spaces"
+    groups:
+    - name: "group with spaces"
+      technologies:
+      - "pipeline"
+      vars:
+      - name: "Variables name with spaces"
+        description: "Message to display in the job"
+        key: "no_spaces"
+        widget: "simple_text"
+        type: "string"
+        default: "osef"
+  - name: "section spaces AND CAPS"
+    groups:
+    - name: "group spaces AND CAPS"
+      technologies:
+      - "pipeline"
+      vars:
+      - name: "Variables name spaces AND CAPS"
+        description: "Message to display in the job"
+        key: "no_spaces_no_caps"
+        widget: "simple_text"
+        type: "string"
+        default: "osef"
+
+  - name: "can two sections have same name with different caps ?"
+    groups:
+    - name: "can two groups have same name with different caps ?"
+      technologies:
+      - "pipeline"
+      vars:
+      - name: "Variables name spaces AND CAPS"
+        description: "Message to display in the job"
+        key: "group1"
+        widget: "simple_text"
+        type: "string"
+        default: "osef"
+
+  - name: "CAN TWO SECTIONS HAVE SAME NAME WITH DIFFERENT CAPS ?"
+    groups:
+    - name: "CAN TWO GROUPS HAVE SAME NAME WITH DIFFERENT CAPS ?"
+      technologies:
+      - "pipeline"
+      vars:
+      - name: "Variables name spaces AND CAPS"
+        description: "Message to display in the job"
+        key: "group2"
+        widget: "simple_text"
+        type: "string"
+        default: "osef"

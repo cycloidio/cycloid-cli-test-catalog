@@ -1,6 +1,6 @@
 ---
-name: "CLI e2e stackforms tests"
-canonical: "stack-e2e-stackforms"
+name: "Stack aws b"
+canonical: "stack-aws-b"
 description: |
   This stack is made for testing stackforms value update via the CLI.
 keywords:
