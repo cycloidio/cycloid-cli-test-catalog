@@ -1,6 +1,2 @@
-# Expose variables to the pipeline.
-
-# Cycloid also provides special variables that can also be injected.
-# See: https://docs.cycloid.io/deploy/stackforms/advanced.html#special-variables
-
+---
 {}
