@@ -96,7 +96,7 @@ jobs:
           name: registry-image
         source:
           repository: cycloid/cycloid-toolkit
-
+          tag: latest
 
   - name: terraform-plan
     serial: true
@@ -163,6 +163,7 @@ jobs:
 groups:
 - name: overview
   jobs:
+  - hello
   - terraform-plan
   - terraform-apply
 - name: destroy
