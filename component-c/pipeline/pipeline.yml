@@ -6,6 +6,7 @@ definitions:
     # The task producing a configured stack, merging stack and config.
     - &task-merge-stack-and-config
       task: merge-stack-and-config
+      tags: [fred]
       config:
         platform: linux
         image_resource:
