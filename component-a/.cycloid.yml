@@ -2,7 +2,7 @@
 version: '3'
 
 name: Terraform
-canonical: terraform-sample
+canonical: component-a
 author: 'Cycloid'
 # Fill in the stack details.
 description: 'Discover how to integrate Terraform in your pipelines.'
