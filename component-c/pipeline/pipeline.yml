@@ -92,9 +92,9 @@ jobs:
     plan:
     - task: print-special-vars
       config:
-        anonymous_resource:
-          resource_type:
-            name: registry-image
+        platform: linux
+        image_resource:
+          type: registry-image
           source:
             repository: cycloid/cycloid-toolkit
             tag: latest

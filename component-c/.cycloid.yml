@@ -1,8 +1,8 @@
 # Use the latest version 3 of the Cycloid stack engine.
 version: '3'
 
-name: Component B
-canonical: component-b
+name: Component C
+canonical: component-c
 author: 'Cycloid'
 # Fill in the stack details.
 description: 'Discover how to integrate Terraform in your pipelines.'
