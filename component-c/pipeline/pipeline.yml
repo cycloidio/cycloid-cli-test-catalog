@@ -47,6 +47,10 @@ resource_types:
 
 # Declare resources to be invoked later in jobs.
 resources:
+- name: cycloid-toolkit
+  type: registry-image
+  tags: [fred]
+
 # The Terraform Concourse resource to manage infrastructure via Terraform.
 # See: https://github.com/cycloidio/terraform-resource#source-configuration
 - name: tfstate
@@ -97,6 +101,7 @@ resources:
 jobs:
   - name: hello
     plan:
+    - get: cycloid-toolkit
     - task: print-special-vars
       image: cycloid-toolkit
       config:
