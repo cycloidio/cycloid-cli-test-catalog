@@ -38,6 +38,12 @@ resource_types:
   tags: &worker-tag
   - fred
 
+- name: cycloid-toolkit
+  type: registry-image
+  tags: *worker-tag
+  source:
+    repository: cycloid/cycloid-toolkit
+    tag: latest
 # Declare resources to be invoked later in jobs.
 resources:
 # The Terraform Concourse resource to manage infrastructure via Terraform.
