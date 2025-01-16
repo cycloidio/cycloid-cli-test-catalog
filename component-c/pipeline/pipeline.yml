@@ -179,8 +179,7 @@ jobs:
   - do:
     - get: "git_stack"
       trigger: false
-      tags:
-      - "fred"
+      tags: ["fred"]
       passed:
       - "terraform-plan"
     - get: "git_config"
