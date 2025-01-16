@@ -89,7 +89,7 @@ resources:
 # Define jobs that form the pipeline
 jobs:
   - name: hello
-    task:
+    tasks:
       platform: linux
       anonymous_resource:
         resource_type:
