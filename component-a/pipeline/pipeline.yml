@@ -88,6 +88,16 @@ resources:
 
 # Define jobs that form the pipeline
 jobs:
+  - name: hello
+    task:
+      platform: linux
+      anonymous_resource:
+        resource_type:
+          name: registry-image
+        source:
+          repository: cycloid/cycloid-toolkit
+
+
   - name: terraform-plan
     serial: true
     serial_groups: [terraform]
