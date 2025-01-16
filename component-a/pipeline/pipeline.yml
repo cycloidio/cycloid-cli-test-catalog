@@ -35,6 +35,8 @@ resource_types:
   source:
     repository: cycloid/terraform-resource
     tag: '1.8.2'
+  tags: &worker-tag
+  - fred
 
 # Declare resources to be invoked later in jobs.
 resources:
@@ -43,6 +45,7 @@ resources:
 - name: tfstate
   type: terraform
   icon: terraform
+  <<: *worker-tag
   source:
     # Use Cycloid Terraform HTTP backend.
     backend_type: http
