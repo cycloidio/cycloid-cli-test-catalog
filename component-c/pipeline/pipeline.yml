@@ -32,12 +32,11 @@ definitions:
 resource_types:
 - name: terraform
   type: registry-image
-  tags: [fred]
+  tags: &worker-tag
+  - fred
   source:
     repository: cycloid/terraform-resource
     tag: '1.8.2'
-  tags: &worker-tag
-  - fred
 
 - name: cycloid-toolkit
   type: registry-image
