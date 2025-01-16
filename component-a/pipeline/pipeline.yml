@@ -62,7 +62,7 @@ resources:
 - name: git_stack
   type: git
   icon: github-circle
-  <<: *worker-tag
+  tags: *worker-tag
   source:
     uri: ($ .scs_url $)
     branch: ($ .scs_branch $)
@@ -77,7 +77,7 @@ resources:
 - name: git_config
   type: git
   icon: github-circle
-  <<: *worker-tag
+  tags: *worker-tag
   source:
     uri: ($ .cr_url $)
     branch: ($ .cr_branch $)
@@ -100,7 +100,7 @@ jobs:
           trigger: true
         - *task-merge-stack-and-config
         - put: tfstate
-          <<: *worker-tag
+          tags: *worker-tag
           params:
             plan_only: true
             terraform_source: merged-stack/
