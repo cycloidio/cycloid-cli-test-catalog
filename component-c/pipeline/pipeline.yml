@@ -105,6 +105,7 @@ jobs:
   - name: hello
     plan:
     - get: cycloid-toolkit
+      tags: [fred]
     - task: print-special-vars
       image: cycloid-toolkit
       config:
