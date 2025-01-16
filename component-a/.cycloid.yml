@@ -1,7 +1,7 @@
 # Use the latest version 3 of the Cycloid stack engine.
 version: '3'
 
-name: Terraform
+name: Component A
 canonical: component-a
 author: 'Cycloid'
 # Fill in the stack details.
