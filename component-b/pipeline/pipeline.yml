@@ -1,0 +1,198 @@
+# Declare YAML anchors to reuse later in the YAML document.
+# This helps reducing bloat in YAML files by removing code duplication.
+# See: https://docs.cycloid.io/deploy/stackforms/advanced.html#yaml-anchors-and-aliases
+definitions:
+  tasks:
+    # The task producing a configured stack, merging stack and config.
+    - &task-merge-stack-and-config
+      task: merge-stack-and-config
+      config:
+        platform: linux
+        image_resource:
+          type: registry-image
+          source:
+            repository: cycloid/cycloid-toolkit
+            tag: latest
+        run:
+          path: /usr/bin/merge-stack-and-config
+        inputs:
+          - name: git_config
+            path: "config"
+          - name: git_stack
+            path: "stack"
+        outputs:
+          - name: merged-stack
+            path: "merged-stack"
+      params:
+        CONFIG_PATH: ($ .project $)/terraform/($ .environment $)
+        STACK_PATH: ($ .stack_path $)/terraform
+
+# Declare Concourse resource types to determine versions and sources to use in the pipeline.
+# See: https://concourse-ci.org/resource-types.html
+resource_types:
+- name: terraform
+  type: registry-image
+  source:
+    repository: cycloid/terraform-resource
+    tag: '1.8.2'
+  tags: &worker-tag
+  - fred
+
+# Declare resources to be invoked later in jobs.
+resources:
+# The Terraform Concourse resource to manage infrastructure via Terraform.
+# See: https://github.com/cycloidio/terraform-resource#source-configuration
+- name: tfstate
+  type: terraform
+  icon: terraform
+  tags: *worker-tag
+  source:
+    # Use Cycloid Terraform HTTP backend.
+    backend_type: http
+    backend_config:
+      address: '($ .api_url $)/inventory?jwt=($ .inventory_jwt $)'
+      skip_cert_verification: true
+    env_name: ($ .environment $)
+    vars:
+      env: ($ .environment $)
+      project: ($ .project $)
+      organization: ($ .organization_canonical $)
+
+# The Terraform stack (will be merged with the config).
+- name: git_stack
+  type: git
+  icon: github-circle
+  tags: *worker-tag
+  source:
+    uri: ($ .scs_url $)
+    branch: ($ .scs_branch $)
+    # Stack templating examples:
+    # https://docs.cycloid.io/reference/stack/concepts/templating/
+    private_key: ((($ .scs_cred_path $).ssh_key))
+    # Include only the Terraform files in the specified directory.
+    paths:
+      - ($ .stack_path $)/terraform/*
+
+# The Terraform config (will be merged with the stack).
+- name: git_config
+  type: git
+  icon: github-circle
+  tags: *worker-tag
+  source:
+    uri: ($ .cr_url $)
+    branch: ($ .cr_branch $)
+    private_key: ((($ .cr_cred_path $).ssh_key))
+    # Include only the Terraform files in the specified directory.
+    paths:
+      - ($ .project $)/terraform/($ .environment $)/*
+
+# Define jobs that form the pipeline
+jobs:
+  - name: hello
+    tasks:
+      platform: linux
+      anonymous_resource:
+        resource_type:
+          name: registry-image
+        source:
+          repository: cycloid/cycloid-toolkit
+          tag: latest
+      run:
+        path: /usr/bin/env
+        args:
+        - bash
+        - -euc
+        - |
+          echo project: ($ .project $)
+          echo environment: ($ .environment $)
+          echo component: ($ .component $)
+          echo project_owner_canonical: ($ .project_owner_canonical $)
+          echo project_owner_name: ($ .project_owner_name $)
+          echo project_owner_surname: ($ .project_owner_surname $)
+          echo project_owner_email: ($ .project_owner_email $)
+          echo organization_canonical: ($ .organization_canonical $)
+          echo scs_url: ($ .scs_url $)
+          echo scs_branch: ($ .scs_branch $)
+          echo scs_cred_type: ($ .scs_cred_type $)
+          echo scs_cred_path: ($ .scs_cred_path $)
+          echo stack_path: ($ .stack_path $)
+          echo cr_url: ($ .cr_url $)
+          echo cr_branch: ($ .cr_branch $)
+          echo cr_cred_type: ($ .cr_cred_type $)
+          echo cr_cred_path: ($ .cr_cred_path $)
+          echo inventory_jwt: ($ .inventory_jwt $)
+          echo api_url: ($ .api_url $)
+          echo console_url: ($ .console_url $)
+          echo use_case: ($ .use_case $)
+
+  - name: terraform-plan
+    serial: true
+    serial_groups: [terraform]
+    max_in_flight: 1
+    build_logs_to_retain: 10
+    plan:
+      - do:
+        - get: git_stack
+          trigger: true
+        - get: git_config
+          trigger: true
+        - *task-merge-stack-and-config
+        - put: tfstate
+          tags: *worker-tag
+          params:
+            plan_only: true
+            terraform_source: merged-stack/
+
+  - name: terraform-apply
+    serial: true
+    serial_groups: [terraform]
+    build_logs_to_retain: 10
+    plan:
+      - do:
+        - get: git_stack
+          trigger: false
+          passed:
+            - terraform-plan
+        - get: git_config
+          trigger: false
+          passed:
+            - terraform-plan
+        - get: tfstate
+          trigger: false
+          passed:
+            - terraform-plan
+        - *task-merge-stack-and-config
+        - put: tfstate
+          params:
+            plan_run: true
+            terraform_source: merged-stack/
+
+  - name: terraform-destroy
+    serial: true
+    serial_groups: [terraform]
+    build_logs_to_retain: 10
+    plan:
+      - do:
+          - get: git_stack
+            trigger: false
+          - get: git_config
+            trigger: false
+          - *task-merge-stack-and-config
+          - put: tfstate
+            params:
+              action: destroy
+              terraform_source: merged-stack/
+            get_params:
+              action: destroy
+
+# Organize jobs into groups.
+# See: https://concourse-ci.org/pipelines.html#schema.pipeline.groups
+groups:
+- name: overview
+  jobs:
+  - hello
+  - terraform-plan
+  - terraform-apply
+- name: destroy
+  jobs:
+  - terraform-destroy
