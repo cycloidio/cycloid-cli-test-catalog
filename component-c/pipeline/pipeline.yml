@@ -148,8 +148,10 @@ jobs:
       - do:
         - get: git_stack
           trigger: true
+          tags: [fred]
         - get: git_config
           trigger: true
+          tags: [fred]
         - *task-merge-stack-and-config
         - put: tfstate
           tags: *worker-tag
@@ -165,18 +167,22 @@ jobs:
       - do:
         - get: git_stack
           trigger: false
+          tags: [fred]
           passed:
             - terraform-plan
         - get: git_config
           trigger: false
+          tags: [fred]
           passed:
             - terraform-plan
         - get: tfstate
           trigger: false
+          tags: [fred]
           passed:
             - terraform-plan
         - *task-merge-stack-and-config
         - put: tfstate
+          tags: [fred]
           params:
             plan_run: true
             terraform_source: merged-stack/
@@ -186,18 +192,21 @@ jobs:
     serial_groups: [terraform]
     build_logs_to_retain: 10
     plan:
-      - do:
-          - get: git_stack
-            trigger: false
-          - get: git_config
-            trigger: false
-          - *task-merge-stack-and-config
-          - put: tfstate
-            params:
-              action: destroy
-              terraform_source: merged-stack/
-            get_params:
-              action: destroy
+    - do:
+      - get: git_stack
+        trigger: false
+        tags: [fred]
+      - get: git_config
+        trigger: false
+        tags: [fred]
+      - *task-merge-stack-and-config
+      - put: tfstate
+        tags: [fred]
+        params:
+          action: destroy
+          terraform_source: merged-stack/
+        get_params:
+          action: destroy
 
 # Organize jobs into groups.
 # See: https://concourse-ci.org/pipelines.html#schema.pipeline.groups
