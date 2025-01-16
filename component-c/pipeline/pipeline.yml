@@ -119,27 +119,27 @@ jobs:
         args:
         - "-xc"
         - |
-          echo project: ($ .project $)
-          echo environment: ($ .environment $)
-          echo component: ($ .component $)
-          echo project_owner_canonical: ($ .project_owner_canonical $)
-          echo project_owner_name: ($ .project_owner_name $)
-          echo project_owner_surname: ($ .project_owner_surname $)
-          echo project_owner_email: ($ .project_owner_email $)
-          echo organization_canonical: ($ .organization_canonical $)
-          echo scs_url: ($ .scs_url $)
-          echo scs_branch: ($ .scs_branch $)
-          echo scs_cred_type: ($ .scs_cred_type $)
-          echo scs_cred_path: ($ .scs_cred_path $)
-          echo stack_path: ($ .stack_path $)
-          echo cr_url: ($ .cr_url $)
-          echo cr_branch: ($ .cr_branch $)
-          echo cr_cred_type: ($ .cr_cred_type $)
-          echo cr_cred_path: ($ .cr_cred_path $)
-          echo inventory_jwt: ($ .inventory_jwt $)
-          echo api_url: ($ .api_url $)
-          echo console_url: ($ .console_url $)
-          echo use_case: ($ .use_case $)
+          echo "project: ($ .project $)"
+          echo "environment: ($ .environment $)"
+          echo "component: ($ .component $)"
+          echo "project_owner_canonical: ($ .project_owner_canonical $)"
+          echo "project_owner_name: ($ .project_owner_name $)"
+          echo "project_owner_surname: ($ .project_owner_surname $)"
+          echo "project_owner_email: ($ .project_owner_email $)"
+          echo "organization_canonical: ($ .organization_canonical $)"
+          echo "scs_url: ($ .scs_url $)"
+          echo "scs_branch: ($ .scs_branch $)"
+          echo "scs_cred_type: ($ .scs_cred_type $)"
+          echo "scs_cred_path: ($ .scs_cred_path $)"
+          echo "stack_path: ($ .stack_path $)"
+          echo "cr_url: ($ .cr_url $)"
+          echo "cr_branch: ($ .cr_branch $)"
+          echo "cr_cred_type: ($ .cr_cred_type $)"
+          echo "cr_cred_path: ($ .cr_cred_path $)"
+          echo "inventory_jwt: ($ .inventory_jwt $)"
+          echo "api_url: ($ .api_url $)""
+          echo "console_url: ($ .console_url $)"
+          echo "use_case: ($ .use_case $)"
 
 - name: "terraform-plan"
   serial: true
