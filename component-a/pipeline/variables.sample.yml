@@ -1,0 +1,16 @@
+# Expose variables to the pipeline.
+
+# Cycloid also provides special variables that can also be injected.
+# See: https://docs.cycloid.io/deploy/stackforms/advanced.html#special-variables
+
+($> if eq .stack_usecase "aws" -<$)
+aws_cred: "Filled by stackforms"
+aws_default_region: "Filled by stackforms"
+($> else if eq .stack_usecase "gcp" -<$)
+gcp_project: "Filled by stackforms"
+gcp_zone: "Filled by stackforms"
+gcp_credentials_json: "Filled by stackforms"
+($> else if eq .stack_usecase "azure" -<$)
+azure_env: "Filled by stackforms"
+azure_cred: "Filled by stackforms"
+($>- end <$)
