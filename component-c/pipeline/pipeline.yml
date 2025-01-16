@@ -100,8 +100,10 @@ jobs:
     - task: print-special-vars
       config:
         platform: linux
+        tags: [fred]
         image_resource:
           type: registry-image
+          tags: [fred]
           source:
             repository: cycloid/cycloid-toolkit
             tag: latest
