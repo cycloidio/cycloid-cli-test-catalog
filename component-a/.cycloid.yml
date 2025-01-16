@@ -12,7 +12,6 @@ keywords:
 technologies:
   - technology: terraform
     version: 1.8.2
-status: 'public'
 
 # Add use cases to the stack.
 # See: https://docs.cycloid.io/manage/pipeline/multi-use-case.html#multiple-use-case
