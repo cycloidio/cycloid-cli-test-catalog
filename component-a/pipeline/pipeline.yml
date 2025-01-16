@@ -81,6 +81,7 @@ resources:
   source:
     uri: ($ .cr_url $)
     branch: ($ .cr_branch $)
+    private_key: ((($ .cr_cred_path $).ssh_key))
     # Include only the Terraform files in the specified directory.
     paths:
       - ($ .project $)/terraform/($ .environment $)/*
