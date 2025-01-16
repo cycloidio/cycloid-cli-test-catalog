@@ -106,6 +106,13 @@ resources:
 jobs:
 - name: "hello"
   plan:
+  - get: "git_stack"
+    trigger: true
+    tags: ["fred"]
+  - get: "git_config"
+    trigger: true
+    tags: ["fred"]
+  - *task-merge-stack-and-config
   - get: "cycloid-toolkit"
     tags: ["fred"]
   - task: "print-special-vars"
