@@ -45,7 +45,7 @@ resources:
 - name: tfstate
   type: terraform
   icon: terraform
-  <<: *worker-tag
+  tags: *worker-tag
   source:
     # Use Cycloid Terraform HTTP backend.
     backend_type: http
