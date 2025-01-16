@@ -12,7 +12,6 @@ keywords:
 technologies:
   - technology: terraform
     version: 1.8.2
-template: true
 status: 'public'
 
 # Add use cases to the stack.
