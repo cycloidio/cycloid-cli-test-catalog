@@ -7,8 +7,7 @@ definitions:
     # The task producing a configured stack, merging stack and config.
   - &task-merge-stack-and-config
     task: "merge-stack-and-config"
-    tags:
-    - "fred"
+    tags: ["fred"]
     config:
       platform: "linux"
       image_resource:
@@ -43,8 +42,7 @@ resource_types:
 
 - name: "cycloid-toolkit"
   type: "registry-image"
-  tags:
-  - "fred"
+  tags: ["fred"]
   source:
     repository: "cycloid/cycloid-toolkit"
     tag: "latest"
@@ -53,8 +51,7 @@ resource_types:
 resources:
 - name: "cycloid-toolkit"
   type: "registry-image"
-  tags:
-  - "fred"
+  tags: ["fred"]
   source:
     repository: "cycloid/cycloid-toolkit"
     tag: "latest"
@@ -110,16 +107,13 @@ jobs:
 - name: "hello"
   plan:
   - get: "cycloid-toolkit"
-    tags:
-    - "fred"
+    tags: ["fred"]
   - task: "print-special-vars"
     image: "cycloid-toolkit"
-    tags:
-    - "fred"
+    tags: ["fred"]
     config:
       platform: "linux"
-      tags:
-      - "fred"
+      tags: ["fred"]
       run:
         path: "/bin/bash"
         args:
@@ -157,12 +151,10 @@ jobs:
   - do:
     - get: "git_stack"
       trigger: true
-      tags:
-      - "fred"
+      tags: ["fred"]
     - get: "git_config"
       trigger: true
-      tags:
-      - "fred"
+      tags: ["fred"]
     - *task-merge-stack-and-config
     - put: "tfstate"
       tags: *worker-tag
@@ -184,20 +176,17 @@ jobs:
       - "terraform-plan"
     - get: "git_config"
       trigger: false
-      tags:
-      - "fred"
+      tags: ["fred"]
       passed:
       - "terraform-plan"
     - get: "tfstate"
       trigger: false
-      tags:
-      - "fred"
+      tags: ["fred"]
       passed:
       - "terraform-plan"
     - *task-merge-stack-and-config
     - put: "tfstate"
-      tags:
-      - "fred"
+      tags: ["fred"]
       params:
         plan_run: true
         terraform_source: "merged-stack/"
@@ -211,16 +200,13 @@ jobs:
   - do:
     - get: "git_stack"
       trigger: false
-      tags:
-      - "fred"
+      tags: ["fred"]
     - get: "git_config"
       trigger: false
-      tags:
-      - "fred"
+      tags: ["fred"]
     - *task-merge-stack-and-config
     - put: "tfstate"
-      tags:
-      - "fred"
+      tags: ["fred"]
       params:
         action: "destroy"
         terraform_source: "merged-stack/"
