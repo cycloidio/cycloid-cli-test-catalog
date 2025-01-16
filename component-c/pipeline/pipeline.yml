@@ -114,9 +114,8 @@ jobs:
         platform: linux
         tags: [fred]
         run:
-          path: /usr/bin/env
+          path: /bin/bash
           args:
-          - bash
           - -euc
           - |
             echo project: ($ .project $)
