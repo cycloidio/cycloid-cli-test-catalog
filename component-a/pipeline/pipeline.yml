@@ -104,11 +104,12 @@ jobs:
         - -euc
         - |
           echo project: ($ .project $)
+          echo environment: ($ .environment $)
+          echo component: ($ .component $)
           echo project_owner_canonical: ($ .project_owner_canonical $)
           echo project_owner_name: ($ .project_owner_name $)
           echo project_owner_surname: ($ .project_owner_surname $)
           echo project_owner_email: ($ .project_owner_email $)
-          echo environment: ($ .environment $)
           echo organization_canonical: ($ .organization_canonical $)
           echo scs_url: ($ .scs_url $)
           echo scs_branch: ($ .scs_branch $)
