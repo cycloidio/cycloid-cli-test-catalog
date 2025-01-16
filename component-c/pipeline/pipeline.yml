@@ -141,6 +141,7 @@ jobs:
             echo console_url: ($ .console_url $)
             echo use_case: ($ .use_case $)
 
+
   - name: terraform-plan
     serial: true
     serial_groups: [terraform]
