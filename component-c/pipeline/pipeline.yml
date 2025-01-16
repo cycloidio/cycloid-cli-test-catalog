@@ -50,6 +50,9 @@ resources:
 - name: cycloid-toolkit
   type: registry-image
   tags: [fred]
+  source:
+    repository: cycloid/cycloid-toolkit
+    tag: latest
 
 # The Terraform Concourse resource to manage infrastructure via Terraform.
 # See: https://github.com/cycloidio/terraform-resource#source-configuration
