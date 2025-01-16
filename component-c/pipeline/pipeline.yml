@@ -32,6 +32,7 @@ definitions:
 resource_types:
 - name: terraform
   type: registry-image
+  tags: [fred]
   source:
     repository: cycloid/terraform-resource
     tag: '1.8.2'
