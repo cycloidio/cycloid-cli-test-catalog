@@ -148,6 +148,7 @@ jobs:
           echo "api_url: ($ .api_url $)""
           echo "console_url: ($ .console_url $)"
           echo "use_case: ($ .use_case $)"
+          ls */*
 
 - name: "terraform-plan"
   serial: true
