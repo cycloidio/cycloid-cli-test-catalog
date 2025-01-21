@@ -61,7 +61,7 @@ resources:
 - name: "tfstate"
   type: "terraform"
   icon: "terraform"
-  tags: *worker-tag
+  tags: ["fred"]
   source:
     # Use Cycloid Terraform HTTP backend.
     backend_type: "http"
@@ -78,7 +78,7 @@ resources:
 - name: "git_stack"
   type: "git"
   icon: "github-circle"
-  tags: *worker-tag
+  tags: ["fred"]
   source:
     uri: "($ .scs_url $)"
     branch: "($ .scs_branch $)"
@@ -93,7 +93,7 @@ resources:
 - name: "git_config"
   type: "git"
   icon: "github-circle"
-  tags: *worker-tag
+  tags: ["fred"]
   source:
     uri: "($ .cr_url $)"
     branch: "($ .cr_branch $)"
@@ -166,7 +166,7 @@ jobs:
       tags: ["fred"]
     - *task-merge-stack-and-config
     - put: "tfstate"
-      tags: *worker-tag
+      tags: ["fred"]
       params:
         plan_only: true
         terraform_source: "merged-stack/"
@@ -233,3 +233,4 @@ groups:
 - name: "destroy"
   jobs:
   - "terraform-destroy"
+
