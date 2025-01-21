@@ -52,7 +52,7 @@ use_cases:
         description: |
           Type can be anything but raw
           Must have at least 1 value, only 2 if `boolean`
-        key: "dropdown_var"
+        key: "dropdown_var_10"
         widget: "dropdown"
         type: "string"
         values:
