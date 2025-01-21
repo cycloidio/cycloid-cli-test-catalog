@@ -1,13 +1,13 @@
 ---
 # Define the stack configuration form and organize inputs of various types into sections and groups.
 # See: https://docs.staging.cycloid.io/deploy/stackforms/file-format.html
-shared_hello:
-- &anchor
-  name: "anchor"
-  key: "anchor"
-  type: "string"
-  widget: "simple_text"
-
+# shared_hello:
+# - &anchor
+#   name: "anchor"
+#   key: "anchor"
+#   type: "string"
+#   widget: "simple_text"
+#
 use_cases:
 # Use case definitions must match those in your .cycloid.yml file !
 - name: "use-case-A"
@@ -21,7 +21,7 @@ use_cases:
     - name: "This group uses the pipeline technology"
       technologies: ["pipeline"]
       vars:
-      - <<: *anchor
+      # - <<: *anchor
       - name: "Auto complete"
         description: |
           Only `string` allowed.
