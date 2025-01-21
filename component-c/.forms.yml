@@ -151,14 +151,14 @@ use_cases:
         widget: "text_area"
         type: "map"
 
-      - name: "[BETA] Inventory widget"
-        description: "Select a resource attribute from the inventory and link the\
-          \ value to this asset"
-        key: "aws_vpc"
-        type: "string"
-        widget: "cy_inventory_resource"
-        widget_config:
-          attribute: "id"
-          filters:
-            attributes: "tags.env[eq]=($ .environment $)"
-            type: "aws_vpc"
+      # - name: "[BETA] Inventory widget"
+      #   description: "Select a resource attribute from the inventory and link the\
+      #     \ value to this asset"
+      #   key: "aws_vpc"
+      #   type: "string"
+      #   widget: "cy_inventory_resource"
+      #   widget_config:
+      #     attribute: "id"
+      #     filters:
+      #       attributes: "tags.env[eq]=($ .environment $)"
+      #       type: "aws_vpc"
