@@ -34,7 +34,7 @@ definitions:
 resource_types:
 - name: "terraform"
   type: "registry-image"
-  tags: &worker-tag
+  tags:
   - "fred"
   source:
     repository: "cycloid/terraform-resource"
@@ -233,4 +233,3 @@ groups:
 - name: "destroy"
   jobs:
   - "terraform-destroy"
-

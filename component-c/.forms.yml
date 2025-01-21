@@ -1,5 +1,12 @@
 # Define the stack configuration form and organize inputs of various types into sections and groups.
 # See: https://docs.staging.cycloid.io/deploy/stackforms/file-format.html
+shared:
+- &hello
+  name: "hello"
+  key: hello
+  type: string
+  widget: simple_text
+
 use_cases:
 - name: default
   sections:
@@ -15,4 +22,5 @@ use_cases:
         widget: auto_complete
         values: ["micro", "small", "medium", "large"]
         default: "medium"
+      <<: *hello
 
