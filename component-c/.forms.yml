@@ -1,26 +1,26 @@
+---
 # Define the stack configuration form and organize inputs of various types into sections and groups.
 # See: https://docs.staging.cycloid.io/deploy/stackforms/file-format.html
 shared:
 - &hello
   name: "hello"
-  key: hello
-  type: string
-  widget: simple_text
+  key: "hello"
+  type: "string"
+  widget: "simple_text"
 
 use_cases:
-- name: default
+- name: "default"
   sections:
-  - name: Application
+  - name: "Application"
     groups:
-    - name: Configuration
-      technologies: [terraform]
+    - name: "Configuration"
+      technologies: ["terraform"]
       vars:
       - name: "Instance type"
         description: "Specify the size of the instance"
-        key: module.myapp.instance_type
-        type: string
-        widget: auto_complete
+        key: "module.myapp.instance_type"
+        type: "string"
+        widget: "auto_complete"
         values: ["micro", "small", "medium", "large"]
         default: "medium"
       <<: *hello
-
