@@ -24,8 +24,9 @@ definitions:
           - name: merged-stack
             path: "merged-stack"
       params:
-        CONFIG_PATH: ($ .project $)/terraform/($ .environment $)
-        STACK_PATH: ($ .stack_path $)/terraform
+        CONFIG_PATH: "($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform"
+        STACK_PATH: "($ .stack_path $)/terraform"
+
 
 # Declare Concourse resource types to determine versions and sources to use in the pipeline.
 # See: https://concourse-ci.org/resource-types.html
@@ -54,6 +55,7 @@ resources:
       skip_cert_verification: true
     env_name: ($ .environment $)
     vars:
+      component: ($ .component $)
       env: ($ .environment $)
       project: ($ .project $)
       organization: ($ .organization_canonical $)
@@ -84,7 +86,7 @@ resources:
     private_key: ((($ .cr_cred_path $).ssh_key))
     # Include only the Terraform files in the specified directory.
     paths:
-      - ($ .project $)/terraform/($ .environment $)/*
+      - ($ .organization_canonical $)/($ .project $)/($ .environment $)/terraform/*
 
 # Define jobs that form the pipeline
 jobs:
@@ -197,3 +199,4 @@ groups:
 - name: destroy
   jobs:
   - terraform-destroy
+

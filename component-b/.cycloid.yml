@@ -24,8 +24,9 @@ config:
         path: 'pipeline/pipeline.yml'
       variables:
         path: 'pipeline/variables.sample.yml'
-        destination: '($ .project $)/($ .environment $)/($ .component $)/pipeline/variables.yml'
+        destination: '($ .organization_canoncial $)/($ .project $)/($ .environment $)/($ .component $)/pipeline/variables.yml'
     terraform:
       main:
         path: 'terraform/main.tf.sample'
-        destination: '($ .project $)/($ .environment $)/($ .component $)/terraform/main.tf'
+        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/main.tf'
+
