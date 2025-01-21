@@ -10,7 +10,7 @@
 #
 use_cases:
 # Use case definitions must match those in your .cycloid.yml file !
-- name: "use-case-A"
+- name: "default"
   sections:
   # Sections are just logical entities
   - name: "section-A"
@@ -88,7 +88,6 @@ use_cases:
     groups:
     - name: "This group uses 2 technologies"
       technologies:
-      - "ansible"
       - "pipeline"
       vars:
       - name: "Radio buttons"
@@ -110,9 +109,7 @@ use_cases:
         default: |
           Some text value
 
-- name: "use-case-B"
-  sections:
-  - name: "section-A"
+  - name: "section-B"
     groups:
     - name: "group-1"
       vars:
@@ -163,5 +160,5 @@ use_cases:
         widget_config:
           attribute: "id"
           filters:
-            attributes: "tags.env[eq]=infra"
+            attributes: "tags.env[eq]=($ .environment $)"
             type: "aws_vpc"
