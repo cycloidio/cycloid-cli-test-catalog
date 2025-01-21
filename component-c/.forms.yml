@@ -109,7 +109,7 @@ use_cases:
         default: |
           Some text value
 
-  - name: "section-B"
+  - name: "section-C"
     groups:
     - name: "group-1"
       vars:
