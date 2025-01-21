@@ -104,7 +104,7 @@ resources:
 
 # Define jobs that form the pipeline
 jobs:
-- name: "hello"
+- name: "test-vars"
   plan:
   - get: "git_stack"
     trigger: true
@@ -227,7 +227,7 @@ jobs:
 groups:
 - name: "overview"
   jobs:
-  - "hello"
+  - "test-vars"
   - "terraform-plan"
   - "terraform-apply"
 - name: "destroy"
