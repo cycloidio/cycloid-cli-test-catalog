@@ -1,3 +1,7 @@
+locals {
+  prefix = "${var.customer}-${var.project}-${var.env}-${var.component}"
+}
+
 # VPC
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
@@ -21,8 +25,8 @@ resource "aws_internet_gateway" "internet_gateway" {
 
 # Public Subnet
 resource "aws_subnet" "public_subnet" {
-  vpc_id = aws_vpc.vpc.id
-  cidr_block = var.vpc_public_subnet
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = var.vpc_public_subnet
   map_public_ip_on_launch = true
 
   tags = merge(local.merged_tags, {
@@ -35,8 +39,8 @@ resource "aws_subnet" "public_subnet" {
 
 # Private Subnet
 resource "aws_subnet" "private_subnet" {
-  vpc_id = aws_vpc.vpc.id
-  cidr_block = var.vpc_private_subnet
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = var.vpc_private_subnet
   map_public_ip_on_launch = false
 
   tags = merge(local.merged_tags, {
@@ -52,8 +56,8 @@ resource "aws_route_table" "public_route_table" {
   vpc_id = aws_vpc.vpc.id
 
   route {
-      cidr_block = "0.0.0.0/0"
-      gateway_id = aws_internet_gateway.internet_gateway.id
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.internet_gateway.id
   }
 
   tags = merge(local.merged_tags, {
@@ -70,9 +74,9 @@ resource "aws_route_table_association" "public_route_table_association" {
 
 # Allocate an IP address for our NAT gateway
 resource "aws_eip" "eip_nat_gateway" {
-  count    = var.nat_gateway ? 1 : 0
-  
-  domain   = "vpc"
+  count = var.nat_gateway ? 1 : 0
+
+  domain = "vpc"
 
   tags = merge(local.merged_tags, {
     Name = "${var.customer}-${var.project}-${var.env}-eip"
@@ -82,10 +86,10 @@ resource "aws_eip" "eip_nat_gateway" {
 
 # Create a NAT gateway and allocate our EIP
 resource "aws_nat_gateway" "nat_gateway" {
-  count    = var.nat_gateway ? 1 : 0
+  count = var.nat_gateway ? 1 : 0
 
   allocation_id = aws_eip.eip_nat_gateway[0].id
-  subnet_id = aws_subnet.public_subnet.id
+  subnet_id     = aws_subnet.public_subnet.id
 
   tags = merge(local.merged_tags, {
     Name = "${var.customer}-${var.project}-${var.env}-nat-gw"
@@ -95,13 +99,13 @@ resource "aws_nat_gateway" "nat_gateway" {
 
 # Route table which uses our NAT gateway to access the internet
 resource "aws_route_table" "private_route_table" {
-  count    = var.nat_gateway ? 1 : 0
+  count = var.nat_gateway ? 1 : 0
 
   vpc_id = aws_vpc.vpc.id
 
   route {
-      cidr_block = "0.0.0.0/0"
-      nat_gateway_id = aws_nat_gateway.nat_gateway[0].id
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat_gateway[0].id
   }
 
   tags = merge(local.merged_tags, {
@@ -112,7 +116,7 @@ resource "aws_route_table" "private_route_table" {
 
 # Associate private route table with the private subnet to make NAT gateway reachable
 resource "aws_route_table_association" "private_route_table_association" {
-  count    = var.nat_gateway ? 1 : 0
+  count = var.nat_gateway ? 1 : 0
 
   subnet_id      = aws_subnet.private_subnet.id
   route_table_id = aws_route_table.private_route_table[0].id
