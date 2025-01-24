@@ -32,6 +32,7 @@ resources:
     vars:
       aws_cred: ((aws_cred))
       aws_region: ((aws_region))
+      customer: ($ .customer $)
       env: ($ .environment $)
       project: ($ .project $)
       customer: ($ .organization_canonical $)
@@ -109,7 +110,7 @@ jobs:
           - name: merged-stack
             path: "merged-stack"
         params:
-          CONFIG_PATH: ($ .project $)/terraform/($ .environment $)
+          CONFIG_PATH: ''
           STACK_PATH: ($ .stack_path $)/terraform
 
       - put: tfstate
