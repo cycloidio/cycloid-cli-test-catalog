@@ -32,6 +32,7 @@ resources:
     vars:
       aws_cred: ((aws_cred))
       aws_region: ((aws_region))
+      component: ($ .component $)
       env: ($ .environment $)
       project: ($ .project $)
       customer: ($ .organization_canonical $)
@@ -69,7 +70,7 @@ resources:
     private_key: ((($ .cr_cred_path $).ssh_key))
     ($- end $)
     paths:
-      - ($ .project $)/terraform/($ .environment $)/*
+    - '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/*'
 
 
 groups:
