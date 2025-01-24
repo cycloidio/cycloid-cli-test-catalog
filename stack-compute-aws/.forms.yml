@@ -74,16 +74,16 @@ use_cases:
             type: aws_vpc
         type: string
         required: true
-      - name: "SSH Public key"
-        description: "The public SSH key pair name to provision to new instances"
-        key: key_pair_name
-        widget: cy_inventory_resource
-        widget_config:
-          attribute: key_name
-          filters:
-            type: aws_key_pair
-        type: string
-        required: true
+      # - name: "SSH Public key"
+      #   description: "The public SSH key pair name to provision to new instances"
+      #   key: key_pair_name
+      #   widget: cy_inventory_resource
+      #   widget_config:
+      #     attribute: key_name
+      #     filters:
+      #       type: aws_key_pair
+      #   type: string
+      #   required: true
 
 - name: manual
   sections:
