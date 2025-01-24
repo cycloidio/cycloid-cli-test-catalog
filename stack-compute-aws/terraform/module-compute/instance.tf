@@ -4,12 +4,12 @@ locals {
 
 
 resource "aws_security_group" "ec2" {
-  name        = var.prefix
+  name        = local.prefix
   description = "Allow accessing the instance from the internet."
   vpc_id      = data.aws_subnet.selected.vpc_id
 
   tags = merge(local.merged_tags, {
-    Name = "${var.prefix}"
+    Name = "${local.prefix}"
   })
 }
 
@@ -56,7 +56,7 @@ resource "aws_instance" "ec2" {
   }
 
   tags = merge(local.merged_tags, {
-    Name = "${var.prefix}"
+    Name = "${local.prefix}"
     role = "ec2"
   })
 
