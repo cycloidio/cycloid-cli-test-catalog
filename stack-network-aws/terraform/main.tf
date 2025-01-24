@@ -33,28 +33,28 @@ module "network" {
 }
 
 # module "key_pair" {
-  #####################################
-  # Do not modify the following lines #
-  source    = "./key_pair"
-  component = var.component
-  project   = var.project
-  env       = var.env
-  customer  = var.customer
-  #####################################
-
-  #. extra_tags (optional): {}
-  #+ Dict of extra tags to add on resources. format { "foo" = "bar" }.
-  extra_tags = {
-    demo                 = true
-    monitoring_discovery = false
-  }
-
-  #. key_pair_name: ""
-  #+ The name of the key pair to provision to the instance
-  key_pair_name = "${var.customer}-${var.project}-${var.env}-${var.component}"
-
-  #. key_pair_public: ""
-  #+ Public key to create
-  key_pair_public = "Value injected by StackForms"
-}
+#   #####################################
+#   # Do not modify the following lines #
+#   source    = "./key_pair"
+#   component = var.component
+#   project   = var.project
+#   env       = var.env
+#   customer  = var.customer
+#   #####################################
+# 
+#   #. extra_tags (optional): {}
+#   #+ Dict of extra tags to add on resources. format { "foo" = "bar" }.
+#   extra_tags = {
+#     demo                 = true
+#     monitoring_discovery = false
+#   }
+# 
+#   #. key_pair_name: ""
+#   #+ The name of the key pair to provision to the instance
+#   key_pair_name = "${var.customer}-${var.project}-${var.env}-${var.component}"
+# 
+#   #. key_pair_public: ""
+#   #+ Public key to create
+#   key_pair_public = "Value injected by StackForms"
+# }
 
