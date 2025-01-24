@@ -3,7 +3,7 @@ use_cases:
 # Use case definitions must match those in your .cycloid.yml file !
 - name: "default"
   sections:
-  - name: "This group uses the pipeline technology"
+  - name: "group"
     technologies: ["pipeline"]
     vars:
     - name: "Auto complete"
