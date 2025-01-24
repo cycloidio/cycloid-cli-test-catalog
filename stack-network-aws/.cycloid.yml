@@ -30,7 +30,7 @@ config:
         path: pipeline/pipeline.yml
       variables:
         path: pipeline/variables.sample.yml
-        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/pipeline/variables.yml'
+        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/pipeline/variables.yml'
     # Configuration of terraform (leave .sample extension to prevent terraform executing the sample file)
     terraform:
       main:
