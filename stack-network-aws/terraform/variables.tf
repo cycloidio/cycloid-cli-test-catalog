@@ -10,6 +10,6 @@ variable "aws_cred" {
 }
 variable "aws_region" {
   description = "AWS region where to create servers."
-  default     = "eu-west-1"
+  default     = "eu-west-3"
 }
 
