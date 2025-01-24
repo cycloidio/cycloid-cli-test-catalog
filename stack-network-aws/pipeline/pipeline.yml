@@ -30,7 +30,7 @@ resources:
     vars:
       aws_cred: ((aws_cred))
       aws_region: ((aws_region))
-      customer: ($ .customer $)
+      component: ($ .component $)
       env: ($ .environment $)
       project: ($ .project $)
       customer: ($ .organization_canonical $)
