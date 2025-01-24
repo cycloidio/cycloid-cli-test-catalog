@@ -93,10 +93,10 @@ jobs:
     plan:
       - in_parallel:
         - get: git_stack-terraform
-          trigger: true
+          trigger: false
 
         - get: git_config-terraform
-          trigger: true
+          trigger: false
 
       - task: merge-stack-and-config
         config:
@@ -137,7 +137,7 @@ jobs:
             - terraform-plan
 
         - get: tfstate
-          trigger: true
+          trigger: false
           passed:
             - terraform-plan
 
