@@ -27,10 +27,10 @@ config:
     # Pipeline and variable configuration for the default CD pipeline use case
     pipeline:
       pipeline:
-        path: pipeline/pipeline.yaml
+        path: pipeline/pipeline.yml
       variables:
-        path: pipeline/variables.sample.yaml
-        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/pipeline/variables.yaml'
+        path: pipeline/variables.sample.yml
+        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/pipeline/variables.yml'
     # Configuration of terraform (leave .sample extension to prevent terraform executing the sample file)
     terraform:
       main:
@@ -44,10 +44,10 @@ config:
     # Pipeline and variable configuration for the default CD pipeline use case
     pipeline:
       pipeline:
-        path: pipeline/pipeline.yaml
+        path: pipeline/pipeline.yml
       variables:
-        path: pipeline/variables.sample.yaml
-        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/pipeline/variables.yaml'
+        path: pipeline/variables.sample.yml
+        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/pipeline/variables.yml'
     # Configuration of terraform (leave .sample extension to prevent terraform executing the sample file)
     terraform:
       main:
