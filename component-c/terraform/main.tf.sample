@@ -4,7 +4,7 @@ module "myapp" {
   component          = var.component
   env                = var.env
   project            = var.project
-  organization       = var.org
+  org                = var.org
 
   instance_type = "Filled by stackforms"
 }
