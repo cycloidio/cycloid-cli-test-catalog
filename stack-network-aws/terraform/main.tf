@@ -1,16 +1,17 @@
 module "network" {
   #####################################
   # Do not modify the following lines #
-  source   = "./network"
-  project  = var.project
-  env      = var.env
-  customer = var.customer
+  source    = "./network"
+  component = var.component
+  project   = var.project
+  env       = var.env
+  customer  = var.customer
   #####################################
 
   #. extra_tags (optional): {}
   #+ Dict of extra tags to add on resources. format { "foo" = "bar" }.
   extra_tags = {
-    demo = true
+    demo                 = true
     monitoring_discovery = false
   }
 
@@ -44,7 +45,7 @@ module "key_pair" {
   #. extra_tags (optional): {}
   #+ Dict of extra tags to add on resources. format { "foo" = "bar" }.
   extra_tags = {
-    demo = true
+    demo                 = true
     monitoring_discovery = false
   }
 
@@ -56,3 +57,4 @@ module "key_pair" {
   #+ Public key to create
   key_pair_public = "Value injected by StackForms"
 }
+
