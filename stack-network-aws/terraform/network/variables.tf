@@ -1,4 +1,5 @@
 # Cycloid
+variable "component" {}
 variable "customer" {}
 variable "env" {}
 variable "project" {}
@@ -44,3 +45,4 @@ locals {
   }
   merged_tags = merge(local.standard_tags, var.extra_tags)
 }
+
