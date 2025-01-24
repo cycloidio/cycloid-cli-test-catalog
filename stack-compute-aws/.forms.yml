@@ -55,7 +55,7 @@ use_cases:
             - 20
             - 250
         required: true
-        
+
 - name: inventory
   sections:
   - name: Compute

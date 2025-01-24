@@ -1,16 +1,17 @@
 module "compute" {
   #####################################
   # Do not modify the following lines #
-  source   = "./module-compute"
-  project  = var.project
-  env      = var.env
-  customer = var.customer
+  source    = "./module-compute"
+  project   = var.project
+  env       = var.env
+  customer  = var.customer
+  component = var.component
   #####################################
 
   #. extra_tags (optional): {}
   #+ Dict of extra tags to add on resources. format { "foo" = "bar" }.
   extra_tags = {
-    demo = true
+    demo                 = true
     monitoring_discovery = false
   }
 

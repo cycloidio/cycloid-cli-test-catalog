@@ -1,10 +1,15 @@
+locals {
+  prefix = "${var.customer}-${var.project}-${var.env}-${var.component}"
+}
+
+
 resource "aws_security_group" "ec2" {
-  name        = "${var.customer}-${var.project}-${var.env}"
+  name        = var.prefix
   description = "Allow accessing the instance from the internet."
   vpc_id      = data.aws_subnet.selected.vpc_id
 
   tags = merge(local.merged_tags, {
-    Name       = "${var.customer}-${var.project}-${var.env}"
+    Name = "${var.prefix}"
   })
 }
 
@@ -51,7 +56,7 @@ resource "aws_instance" "ec2" {
   }
 
   tags = merge(local.merged_tags, {
-    Name = "${var.customer}-${var.project}-${var.env}"
+    Name = "${var.prefix}"
     role = "ec2"
   })
 
@@ -59,3 +64,4 @@ resource "aws_instance" "ec2" {
     ignore_changes = [ami]
   }
 }
+

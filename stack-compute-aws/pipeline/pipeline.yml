@@ -110,8 +110,8 @@ jobs:
           - name: merged-stack
             path: "merged-stack"
         params:
-          CONFIG_PATH: ($ .project $)/terraform/($ .environment $)
-          STACK_PATH: ($ .stack_path $)/terraform
+          CONFIG_PATH: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/'
+          STACK_PATH: '($ .stack_path $)/terraform'
 
       - put: tfstate
         params:
@@ -153,8 +153,8 @@ jobs:
           - name: merged-stack
             path: "merged-stack"
         params:
-          CONFIG_PATH: ($ .project $)/terraform/($ .environment $)
-          STACK_PATH: ($ .stack_path $)/terraform
+          CONFIG_PATH: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/'
+          STACK_PATH: '($ .stack_path $)/terraform'
 
       - put: tfstate
         params:
@@ -193,8 +193,8 @@ jobs:
           - name: merged-stack
             path: "merged-stack"
         params:
-          CONFIG_PATH: ($ .project $)/terraform/($ .environment $)
-          STACK_PATH: ($ .stack_path $)/terraform
+          CONFIG_PATH: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/'
+          STACK_PATH: '($ .stack_path $)/terraform'
 
       - put: tfstate
         params:
@@ -202,3 +202,4 @@ jobs:
           terraform_source: merged-stack/
         get_params:
           action: destroy
+

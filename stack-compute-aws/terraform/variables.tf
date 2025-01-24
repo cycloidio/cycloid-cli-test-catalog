@@ -1,4 +1,5 @@
 # Cycloid variables
+variable "component" {}
 variable "env" {}
 variable "project" {}
 variable "customer" {}
@@ -11,3 +12,4 @@ variable "aws_region" {
   description = "AWS region where to create servers."
   default     = "eu-west-1"
 }
+

@@ -1,4 +1,5 @@
 # Cycloid
+variable "component" {}
 variable "customer" {}
 variable "env" {}
 variable "project" {}
@@ -11,7 +12,7 @@ variable "vm_instance_type" {
 
 variable "vm_disk_size" {
   description = "Disk size for the instance (Go)"
-  default = "20"
+  default     = "20"
 }
 
 variable "vm_os_user" {
@@ -35,9 +36,11 @@ variable "extra_tags" {
 locals {
   standard_tags = {
     "cycloid" = "true"
-    env          = var.env
-    project      = var.project
-    customer     = var.customer
+    component = var.component
+    env       = var.env
+    project   = var.project
+    customer  = var.customer
   }
   merged_tags = merge(local.standard_tags, var.extra_tags)
 }
+
