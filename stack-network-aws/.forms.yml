@@ -72,14 +72,14 @@ use_cases:
         default: false
         required: true
 
-    - name: Key Pair
-      technologies: [terraform]
-      vars:
-      - name: "SSH Public key"
-        description: "The public SSH key to provision to newly created instances."
-        key: module.key_pair.key_pair_public
-        widget: simple_text
-        type: string
-        default: ""
-        required: true
-
+    # - name: Key Pair
+    #   technologies: [terraform]
+    #   vars:
+    #   - name: "SSH Public key"
+    #     description: "The public SSH key to provision to newly created instances."
+    #     key: module.key_pair.key_pair_public
+    #     widget: simple_text
+    #     type: string
+    #     default: ""
+    #     required: true
+    #
