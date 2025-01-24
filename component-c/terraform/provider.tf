@@ -1,4 +1,4 @@
-variable "org" {}
-variable "project" {}
-variable "env" {}
 variable "component" {}
+variable "env" {}
+variable "project" {}
+variable "org" {}
