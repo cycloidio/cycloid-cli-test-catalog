@@ -1,164 +1,21 @@
 ---
-# Define the stack configuration form and organize inputs of various types into sections and groups.
-# See: https://docs.staging.cycloid.io/deploy/stackforms/file-format.html
-# shared_hello:
-# - &anchor
-#   name: "anchor"
-#   key: "anchor"
-#   type: "string"
-#   widget: "simple_text"
-#
 use_cases:
 # Use case definitions must match those in your .cycloid.yml file !
 - name: "default"
   sections:
-  # Sections are just logical entities
-  - name: "section-A"
-    groups:
-    # Group serves as logical grouping entities and
-    # will allow you to select the technology configured
-    # by the stackforms variables.
-    - name: "This group uses the pipeline technology"
-      technologies: ["pipeline"]
-      vars:
-      # - <<: *anchor
-      - name: "Auto complete"
-        description: |
-          Only `string` allowed.
-          Values listed here are suggestions, user can input arbitrary values.
+  - name: "This group uses the pipeline technology"
+    technologies: ["pipeline"]
+    vars:
+    - name: "Auto complete"
+      description: |
+        Only `string` allowed.
+        Values listed here are suggestions, user can input arbitrary values.
 
-          # Note that _markdown_ is supported in `description` block.
-        key: "auto_complete_var"
-        widget: "auto_complete"
-        type: "string"
-        values:
-        - "one value"
-        - "another one"
-        - "maybe"
-
-      - name: "Drop down menu"
-        description: |
-          Type can be anything but raw
-          Must have at least 1 value, only 2 if `boolean`
-        key: "dropdown_var"
-        widget: "dropdown"
-        type: "string"
-        values:
-        - "value1"
-        - "value2"
-        - "value3"
-
-      - name: "Drop down x10"
-        description: |
-          Type can be anything but raw
-          Must have at least 1 value, only 2 if `boolean`
-        key: "dropdown_var_10"
-        widget: "dropdown"
-        type: "string"
-        values:
-        - "value1"
-        - "value2"
-        - "value3"
-        - "value4"
-        - "value5"
-        - "value6"
-        - "value7"
-        - "value8"
-        - "value9"
-        - "value10"
-        - "value11"
-        - "value12"
-        - "value13"
-        - "value14"
-        - "value15"
-        - "value16"
-        - "value17"
-
-    - name: "This group uses terraform technology"
-      technologies: ["terraform"]
-      vars:
-      - name: "Number input"
-        description: "Type can be `integer` of `float`"
-        key: "number_var"
-        widget: "number"
-        type: "integer"
-        default: 42
-
-  - name: "section-B"
-    groups:
-    - name: "This group uses 2 technologies"
-      technologies:
-      - "pipeline"
-      vars:
-      - name: "Radio buttons"
-        description: |
-          Type can be anything but `raw`
-          Must have at least 1 value, only 2 if `boolean`
-        key: "radios_var"
-        widget: "radios"
-        type: "boolean"
-        values:
-        - true
-        - false
-
-      - name: "Simple text input"
-        description: "Only `string` allowed"
-        key: "simple_text_var"
-        widget: "simple_text"
-        type: "string"
-        default: |
-          Some text value
-
-  - name: "section-C"
-    groups:
-    - name: "group-1"
-      vars:
-      - name: "Slider list"
-        description: |
-          Type can be `string`, `map`, `boolean` or `integer`.
-          Must have at least 1 value, only 2 if `boolean`
-          Values of type `map` will be redered as
-          `JSON`, `YAML` or `HCL`
-          depending on the technologies used.
-        key: "slider_list_var"
-        widget: "slider_list"
-        type: "string"
-        values:
-        - "one"
-        - "two"
-        - "three"
-
-      - name: "Slider range"
-        description: |
-          Type can be only `integer`
-          Only two values accepted, minimal value first, maximum second.
-        key: "slider_range_var"
-        widget: "slider_range"
-        type: "integer"
-        values:
-        - 24  # min
-        - 48  # max
-
-      - name: "Switch button"
-        description: "Type can be only `boolean`"
-        key: "switch_var"
-        widget: "switch"
-        type: "boolean"
-
-      - name: "Text area"
-        description: "Type can be anything, `raw` included."
-        key: "text_area_var"
-        widget: "text_area"
-        type: "map"
-
-      # - name: "[BETA] Inventory widget"
-      #   description: "Select a resource attribute from the inventory and link the\
-      #     \ value to this asset"
-      #   key: "aws_vpc"
-      #   type: "string"
-      #   widget: "cy_inventory_resource"
-      #   widget_config:
-      #     attribute: "id"
-      #     filters:
-      #       attributes: "tags.env[eq]=($ .environment $)"
-      #       type: "aws_vpc"
+        # Note that _markdown_ is supported in `description` block.
+      key: "auto_complete_var"
+      widget: "auto_complete"
+      type: "string"
+      values:
+      - "one value"
+    - another one
+    - maybe
