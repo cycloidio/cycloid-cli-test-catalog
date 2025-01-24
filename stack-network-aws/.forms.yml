@@ -25,7 +25,7 @@ use_cases:
         widget: auto_complete
         type: string
         values_ref: https://cycloid-demo-stackforms-values.s3.eu-west-1.amazonaws.com/aws-regions.json
-        default: eu-west-1
+        default: eu-west-3
         validations:
         - regexp: "^[a-z]{2}-[a-z]+-\\d+$"
           error_message: "Please enter a valid AWS region such as us-east-1"
