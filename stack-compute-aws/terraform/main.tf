@@ -33,5 +33,5 @@ module "compute" {
 
   #. key_pair_name: ''
   #+ Public Key pair name to provision to the EC2 instance
-  key_pair_name = "Value injected by StackForms"
+  # key_pair_name = "Value injected by StackForms"
 }
