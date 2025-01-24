@@ -39,6 +39,7 @@ variable "extra_tags" {
 locals {
   standard_tags = {
     "cycloid.io" = "true"
+    component    = var.component
     env          = var.env
     project      = var.project
     customer     = var.customer
