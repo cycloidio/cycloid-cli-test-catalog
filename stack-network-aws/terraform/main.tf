@@ -17,20 +17,19 @@ module "network" {
 
   #. vpc_cidr: "10.0.0.0/16"
   #+ Public Subnet CIDR
-  vpc_cidr = "Value injected by StackForms"
+  vpc_cidr = "10.0.0.0/16"
 
   #. vpc_public_subnet: "10.0.0.0/24"
   #+ Public Subnet CIDR
-  vpc_public_subnet = "Value injected by StackForms"
+  vpc_public_subnet = "10.0.0.0/24"
 
   #. vpc_private_subnet: "10.0.1.0/24"
   #+ Private Subnet CIDR
-  vpc_private_subnet = "Value injected by StackForms"
+  vpc_private_subnet = "10.0.1.0/24"
 
   #. nat_gateway: false
   #+ Whether to deploy a NAT gateway or not
-  nat_gateway = "Value injected by StackForms"
-
+  nat_gateway = false
 }
 
 module "key_pair" {
