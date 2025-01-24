@@ -1,9 +1,10 @@
 module "myapp" {
   source = "./module-sample"
 
+  component          = var.component
   env                = var.env
   project            = var.project
-  organization       = var.organization
+  organization       = var.org
 
   instance_type = "Filled by stackforms"
 }
