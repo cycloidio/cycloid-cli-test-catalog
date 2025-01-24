@@ -32,7 +32,7 @@ module "network" {
   nat_gateway = false
 }
 
-module "key_pair" {
+# module "key_pair" {
   #####################################
   # Do not modify the following lines #
   source    = "./key_pair"
