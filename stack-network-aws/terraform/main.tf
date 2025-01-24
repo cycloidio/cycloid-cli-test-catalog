@@ -51,7 +51,7 @@ module "key_pair" {
 
   #. key_pair_name: ""
   #+ The name of the key pair to provision to the instance
-  key_pair_name = "${var.project}-${var.env}"
+  key_pair_name = "${var.customer}-${var.project}-${var.env}-${var.component}"
 
   #. key_pair_public: ""
   #+ Public key to create
