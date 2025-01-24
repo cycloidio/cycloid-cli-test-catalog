@@ -29,12 +29,12 @@ config:
         path: pipeline/pipeline.yaml
       variables:
         path: pipeline/variables.sample.yaml
-        destination: ($ .project $)/pipeline/($ .environment $)/variables.yaml
+        destination: ($ .organization_canonical $)/($ .project $)/($ .environment $)/pipeline/variables.yaml
     # Configuration of terraform (leave .sample extension to prevent terraform executing the sample file)
     terraform:
       main:
         path: 'terraform/main.tf'
-        destination: '($ .project $)/terraform/($ .environment $)/main.tf'
+        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/main.tf'
 
   manual:
     name: 'Enter resource IDs manually in a text field.'
@@ -46,7 +46,7 @@ config:
         path: pipeline/pipeline.yaml
       variables:
         path: pipeline/variables.sample.yaml
-        destination: ($ .project $)/pipeline/($ .environment $)/variables.yaml
+        destination: ($ .organization_canonical $)/($ .project $)/($ .environment $)/pipeline/variables.yaml
     # Configuration of terraform (leave .sample extension to prevent terraform executing the sample file)
     terraform:
       main:
