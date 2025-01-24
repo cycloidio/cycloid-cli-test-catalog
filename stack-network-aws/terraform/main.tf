@@ -36,10 +36,11 @@ module "network" {
 module "key_pair" {
   #####################################
   # Do not modify the following lines #
-  source   = "./key_pair"
-  project  = var.project
-  env      = var.env
-  customer = var.customer
+  source    = "./key_pair"
+  component = var.component
+  project   = var.project
+  env       = var.env
+  customer  = var.customer
   #####################################
 
   #. extra_tags (optional): {}

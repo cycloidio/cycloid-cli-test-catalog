@@ -2,7 +2,7 @@
 # https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource
 resource "null_resource" "instance" {
   triggers = {
-    name = "${var.org}-${var.project}-${var.env}"
+    name = "${var.org}-${var.project}-${var.env}-${var.component}"
     type = var.instance_type
   }
 }
