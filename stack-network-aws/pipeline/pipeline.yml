@@ -70,7 +70,7 @@ resources:
     private_key: ((($ .cr_cred_path $).ssh_key))
     ($- end $)
     paths:
-      - ($ .project $)/terraform/($ .environment $)/*
+      - ($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/*
 
 
 groups:
