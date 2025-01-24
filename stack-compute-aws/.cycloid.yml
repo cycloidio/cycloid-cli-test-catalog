@@ -13,6 +13,7 @@ keywords:
   - ec2
   - virtual machine
   - instance
+  - component
   - provider:aws
 technologies:
 - technology: terraform
