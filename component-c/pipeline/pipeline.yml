@@ -70,9 +70,10 @@ resources:
       skip_cert_verification: true
     env_name: "($ .environment $)"
     vars:
+      component: "($ .component $)"
       env: "($ .environment $)"
       project: "($ .project $)"
-      organization: "($ .organization_canonical $)"
+      org: "($ .organization_canonical $)"
 
 # The Terraform stack (will be merged with the config).
 - name: "git_stack"
