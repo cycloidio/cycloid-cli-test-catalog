@@ -7,7 +7,7 @@ resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
 
   tags = merge(local.merged_tags, {
-    Name = "${var.prefix}-vpc"
+    Name = "${local.prefix}-vpc"
     role = "vpc"
   })
 }
@@ -17,7 +17,7 @@ resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws_vpc.vpc.id
 
   tags = merge(local.merged_tags, {
-    Name = "${var.prefix}-ig"
+    Name = "${local.prefix}-ig"
     role = "internet_gateway"
   })
 }
@@ -30,7 +30,7 @@ resource "aws_subnet" "public_subnet" {
   map_public_ip_on_launch = true
 
   tags = merge(local.merged_tags, {
-    Name = "${var.prefix}-public-subnet"
+    Name = "${local.prefix}-public-subnet"
     role = "public_subnet"
     Tier = "Public"
   })
@@ -44,7 +44,7 @@ resource "aws_subnet" "private_subnet" {
   map_public_ip_on_launch = false
 
   tags = merge(local.merged_tags, {
-    Name = "${var.prefix}-private-subnet"
+    Name = "${local.prefix}-private-subnet"
     role = "private_subnet"
     Tier = "Private"
   })
@@ -61,7 +61,7 @@ resource "aws_route_table" "public_route_table" {
   }
 
   tags = merge(local.merged_tags, {
-    Name = "${var.prefix}-public-rt"
+    Name = "${local.prefix}-public-rt"
     role = "public_route_table"
   })
 }
@@ -79,7 +79,7 @@ resource "aws_eip" "eip_nat_gateway" {
   domain = "vpc"
 
   tags = merge(local.merged_tags, {
-    Name = "${var.prefix}-eip"
+    Name = "${local.prefix}-eip"
     role = "eip_nat_gateway"
   })
 }
@@ -92,7 +92,7 @@ resource "aws_nat_gateway" "nat_gateway" {
   subnet_id     = aws_subnet.public_subnet.id
 
   tags = merge(local.merged_tags, {
-    Name = "${var.prefix}-nat-gw"
+    Name = "${local.prefix}-nat-gw"
     role = "nat_gateway"
   })
 }
@@ -109,7 +109,7 @@ resource "aws_route_table" "private_route_table" {
   }
 
   tags = merge(local.merged_tags, {
-    Name = "${var.prefix}-private-rt"
+    Name = "${local.prefix}-private-rt"
     role = "private_route_table"
   })
 }
