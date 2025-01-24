@@ -17,5 +17,5 @@ use_cases:
       type: "string"
       values:
       - "one value"
-    - another one
-    - maybe
+      - "another one"
+      - "maybe"
