@@ -11,14 +11,12 @@ shared:
   run:
     path: /usr/bin/merge-stack-and-config
 
-
 resource_types:
 - name: terraform
   type: registry-image
   source:
     repository: cycloid/terraform-resource
     tag: ((terraform_version))
-
 
 resources:
 - name: tfstate
@@ -36,7 +34,6 @@ resources:
       env: ($ .environment $)
       project: ($ .project $)
       customer: ($ .organization_canonical $)
-
 
 # The Terraform stack (will be merged with the config)
 - name: git_stack-terraform
@@ -72,7 +69,6 @@ resources:
     paths:
       - ($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/*
 
-
 groups:
 - name: overview
   jobs:
@@ -82,7 +78,6 @@ groups:
 - name: destroy
   jobs:
     - terraform-destroy
-
 
 jobs:
   # Merge and trigger a plan whenever there is a commit in Terraform stack or config
