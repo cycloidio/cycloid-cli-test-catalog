@@ -99,9 +99,9 @@ use_cases:
         widget: "simple_text"
         type: "string"
         required: true
-      - name: "SSH Public key"
-        description: "The public SSH key pair name to provision to new instances"
-        key: "key_pair_name"
-        widget: "simple_text"
-        type: "string"
-        required: true
+      # - name: "SSH Public key"
+      #   description: "The public SSH key pair name to provision to new instances"
+      #   key: "key_pair_name"
+      #   widget: "simple_text"
+      #   type: "string"
+      #   required: true
