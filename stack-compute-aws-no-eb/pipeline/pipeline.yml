@@ -28,7 +28,7 @@ resources:
     backend_config:
       bucket: cycloid-sandbox-terraform-remote-state
       key: "($ .organization_canonical $)-($ .project $)-($ .environment $)-($ .component $)"
-      workspace_key_prefix: "($ .organization_canonical $)-($ project $)"
+      workspace_key_prefix: "($ .organization_canonical $)-($ .project $)"
       region: eu-west-1
       access_key: ((aws-demo-account.access_key))
       secret_key: ((aws-demo-account.secret_key))
