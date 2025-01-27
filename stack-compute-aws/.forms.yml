@@ -9,8 +9,7 @@ use_cases:
       technologies: ["pipeline"]
       vars:
       - name: "AWS Account"
-        description: "The AWS account where to deploy the infrastructure. It contains\
-          \ access key and secret key."
+        description: "The AWS account where to deploy the infrastructure. It contains access key and secret key."
         key: "aws_cred"
         widget: "cy_cred"
         widget_config:

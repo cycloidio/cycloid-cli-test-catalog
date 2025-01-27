@@ -56,8 +56,7 @@ resources:
     branch: "($ .cr_branch $)"
     private_key: "((($ .cr_cred_path $).ssh_key))"
     paths:
-    - "($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component\
-      \ $)/terraform/*"
+    - "($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/*"
 
 groups:
 - name: "overview"
@@ -96,8 +95,7 @@ jobs:
       - name: "merged-stack"
         path: "merged-stack"
     params:
-      CONFIG_PATH: "($ .organization_canonical $)/($ .project $)/($ .environment $)/($\
-        \ .component $)/terraform/"
+      CONFIG_PATH: "($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/"
       STACK_PATH: "($ .stack_path $)/terraform"
 
   - put: "tfstate"
@@ -139,8 +137,7 @@ jobs:
       - name: "merged-stack"
         path: "merged-stack"
     params:
-      CONFIG_PATH: "($ .organization_canonical $)/($ .project $)/($ .environment $)/($\
-        \ .component $)/terraform/"
+      CONFIG_PATH: "($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/"
       STACK_PATH: "($ .stack_path $)/terraform"
 
   - put: "tfstate"
@@ -179,8 +176,7 @@ jobs:
       - name: "merged-stack"
         path: "merged-stack"
     params:
-      CONFIG_PATH: "($ .organization_canonical $)/($ .project $)/($ .environment $)/($\
-        \ .component $)/terraform/"
+      CONFIG_PATH: "($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/"
       STACK_PATH: "($ .stack_path $)/terraform"
 
   - put: "tfstate"
