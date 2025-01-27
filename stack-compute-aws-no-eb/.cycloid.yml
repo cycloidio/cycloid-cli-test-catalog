@@ -1,0 +1,56 @@
+---
+# Configuration of the Cycloid stack
+version: '3'
+name: 'AWS EC2 Instance No EB'
+canonical: stack-compute-aws-no-eb
+status: private
+author: Cycloid
+description: |
+  Deploys an AWS EC2 instance using Terraform.
+image: |
+  https://cycloid-demo-stacks-logo.s3.eu-west-1.amazonaws.com/aws-ec2.svg
+keywords:
+  - ec2
+  - virtual machine
+  - instance
+  - component
+  - provider:aws
+technologies:
+- technology: terraform
+  version: 1.8.3
+
+config:
+  inventory:
+    name: 'Select resources using Cycloid Asset Inventory.'
+    description: 'A VPC and a Key Pair are required to be present in the Cycloid Asset Inventory beforehand. You can use the AWS VPC Network to provision these resources.'
+    cloud_provider: aws
+    # Pipeline and variable configuration for the default CD pipeline use case
+    pipeline:
+      pipeline:
+        path: pipeline/pipeline.yml
+      variables:
+        path: pipeline/variables.sample.yml
+        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/pipeline/variables.yml'
+    # Configuration of terraform (leave .sample extension to prevent terraform executing the sample file)
+    terraform:
+      main:
+        path: 'terraform/main.tf'
+        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/main.tf'
+
+  manual:
+    name: 'Enter resource IDs manually in a text field.'
+    description: 'A VPC ID and a Key Pair name will need to be entered manually in a text field.'
+    cloud_provider: aws
+    # Pipeline and variable configuration for the default CD pipeline use case
+    pipeline:
+      pipeline:
+        path: pipeline/pipeline.yml
+      variables:
+        path: pipeline/variables.sample.yml
+        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/pipeline/variables.yml'
+    # Configuration of terraform (leave .sample extension to prevent terraform executing the sample file)
+    terraform:
+      main:
+        path: 'terraform/main.tf'
+        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/main.tf'
+

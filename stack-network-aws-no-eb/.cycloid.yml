@@ -1,0 +1,38 @@
+---
+# Configuration of the Cycloid stack
+version: '3'
+name: 'AWS Landing Zone No EB'
+canonical: stack-network-aws-no-eb
+status: private
+author: Cycloid
+description: |
+  Deploys a VPC with public and private subnets.
+image: |
+  https://cycloid-demo-stacks-logo.s3.eu-west-1.amazonaws.com/aws-vpc.png
+keywords:
+- terraform
+- network
+- vpc
+- subnet
+- component
+- provider:aws
+technologies:
+- technology: terraform
+  version: 1.8.3
+
+config:
+  default:
+    name: 'Default'
+    cloud_provider: aws
+    # Pipeline and variable configuration for the default CD pipeline use case
+    pipeline:
+      pipeline:
+        path: pipeline/pipeline.yml
+      variables:
+        path: pipeline/variables.sample.yml
+        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/pipeline/variables.yml'
+    # Configuration of terraform (leave .sample extension to prevent terraform executing the sample file)
+    terraform:
+      main:
+        path: 'terraform/main.tf'
+        destination: '($ .organization_canonical $)/($ .project $)/($ .environment $)/($ .component $)/terraform/main.tf'
