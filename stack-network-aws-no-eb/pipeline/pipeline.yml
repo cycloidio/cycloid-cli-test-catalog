@@ -24,7 +24,6 @@ resources:
   type: "terraform"
   icon: "terraform"
   source:
-    env_name: "($ .environment $)"
     backend_type: "s3"
     backend_config:
       bucket: cycloid-sandbox-terraform-remote-state
