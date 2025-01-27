@@ -25,9 +25,14 @@ resources:
   icon: "terraform"
   source:
     env_name: "($ .environment $)"
-    backend_type: "http"
+    backend_type: "s3"
     backend_config:
-      address: "($ .api_url $)/inventory?jwt=($ .inventory_jwt $)"
+      bucket: cycloid-sandbox-terraform-remote-state
+      key: "($ .organization_canonical $)-($ .project $)-($ .environment $)-($ .component $)"
+      workspace_key_prefix: "($ .organization_canonical $)-($ project $)"
+      region: eu-west-1
+      access_key: ((aws-demo-account.access_key))
+      secret_key: ((aws-demo-account.secret_key))
     vars:
       aws_cred: "((aws_cred))"
       aws_region: "((aws_region))"
