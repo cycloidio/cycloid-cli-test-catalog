@@ -24,7 +24,7 @@ resources:
   type: "terraform"
   icon: "terraform"
   source:
-    env_name: "($ .environment $)"
+    # env_name: "($ .environment $)"
     backend_type: "http"
     backend_config:
       address: "($ .api_url $)/inventory?jwt=($ .inventory_jwt $)"
