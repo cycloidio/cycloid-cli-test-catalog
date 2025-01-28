@@ -81,15 +81,16 @@ resources:
   icon: "github-circle"
   tags: ["fred"]
   source:
+    ($- if eq .env "prod" $)
     uri: "($ .scs_url $)"
     branch: "($ .scs_branch $)"
     # Stack templating examples:
     # https://docs.cycloid.io/reference/stack/concepts/templating/
-    ($- if eq .env "prod" $)
     private_key: "((($ .scs_cred_path $).ssh_key))"
     # Include only the Terraform files in the specified directory.
     paths:
     - ($ .stack_path $)/terraform/*
+    ($- end $)
 
 # The Terraform config (will be merged with the stack).
 - name: "git_config"
