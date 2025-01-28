@@ -75,7 +75,6 @@ resources:
       project: "($ .project $)"
       org: "($ .organization_canonical $)"
 
-# ($- if eq .env "staging" $)
 # The Terraform stack (will be merged with the config).
 - name: "git_stack"
   type: "git"
@@ -90,9 +89,6 @@ resources:
     # Include only the Terraform files in the specified directory.
     paths:
     - ($ .stack_path $)/terraform/*
-
-# ($- else $)
-# ($- end $)
 
 # The Terraform config (will be merged with the stack).
 - name: "git_config"
