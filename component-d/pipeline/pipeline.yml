@@ -152,6 +152,23 @@ jobs:
           echo "console_url: ($ .console_url $)"
           echo "use_case: ($ .use_case $)"
           ls */*
+  - task: "print-special-vars-2"
+    file:
+    image: "cycloid-toolkit"
+    tags: ["fred"]
+    config:
+      platform: "linux"
+      tags: ["fred"]
+      run:
+        path: "/bin/bash"
+        args:
+        - "-xc"
+        - |
+          echo "project: ($ .project $)"
+          echo "environment: ($ .environment $)"
+          echo "component: ($ .component $)"
+          echo "project_owner_canonical: ($ .project_owner_canonical $)"
+          echo "project_owner_name: ($ .project_owner_name $)"
 
 - name: "terraform-plan"
   serial: true
