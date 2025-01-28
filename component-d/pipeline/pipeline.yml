@@ -75,10 +75,10 @@ resources:
       project: "($ .project $)"
       org: "($ .organization_canonical $)"
 
+($- if eq .env "staging" $)
 # The Terraform stack (will be merged with the config).
 - name: "git_stack"
   type: "git"
-  ($- if eq .env "staging" $)
   icon: "github-circle"
   tags: ["fred"]
   source:
@@ -91,10 +91,9 @@ resources:
     paths:
     - ($ .stack_path $)/terraform/*
 
-- name: "tutu"
 ($- else $)
 - name: "tata"
-    ($- end $)
+($- end $)
 
 # The Terraform config (will be merged with the stack).
 - name: "git_config"
