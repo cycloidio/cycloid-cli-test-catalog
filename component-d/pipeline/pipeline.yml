@@ -78,10 +78,10 @@ resources:
 # The Terraform stack (will be merged with the config).
 - name: "git_stack"
   type: "git"
+  ($- if eq .env "prod" $)
   icon: "github-circle"
   tags: ["fred"]
   source:
-    ($- if eq .env "prod" $)
     uri: "($ .scs_url $)"
     branch: "($ .scs_branch $)"
     # Stack templating examples:
