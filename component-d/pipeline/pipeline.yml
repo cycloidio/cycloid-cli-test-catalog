@@ -78,7 +78,7 @@ resources:
 # The Terraform stack (will be merged with the config).
 - name: "git_stack"
   type: "git"
-  ($- if eq .env "prod" $)
+  ($- if eq .env "staging" $)
   icon: "github-circle"
   tags: ["fred"]
   source:
