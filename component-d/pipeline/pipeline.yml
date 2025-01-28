@@ -92,7 +92,6 @@ resources:
     - ($ .stack_path $)/terraform/*
 
 ($- else $)
-- name: "tata"
 ($- end $)
 
 # The Terraform config (will be merged with the stack).
