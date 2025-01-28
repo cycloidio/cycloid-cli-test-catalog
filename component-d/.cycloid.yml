@@ -1,0 +1,31 @@
+# Use the latest version 3 of the Cycloid stack engine.
+version: '3'
+
+name: Component D
+canonical: component-d
+author: 'Cycloid'
+# Fill in the stack details.
+description: 'Test stack with failed templating'
+image: https://raw.githubusercontent.com/cycloidio/bootstrap-stacks/master/terraform-sample/thumbnail.png
+keywords:
+  - 'terraform'
+technologies:
+  - technology: terraform
+    version: 1.8.2
+
+# Add use cases to the stack.
+# See: https://docs.cycloid.io/manage/pipeline/multi-use-case.html#multiple-use-case
+config:
+  default:
+    name: 'Basic Terraform'
+    description: 'Cloud-agnostic Terraform sample with no specific provider integration.'
+    pipeline:
+      pipeline:
+        path: 'pipeline/pipeline.yml'
+      variables:
+        path: 'pipeline/variables.sample.yml'
+        destination: '($ .project $)/($ .environment $)/($ .component $)/pipeline/variables.yml'
+    terraform:
+      main:
+        path: 'terraform/main.tf.sample'
+        destination: '($ .project $)/($ .environment $)/($ .component $)/terraform/main.tf'

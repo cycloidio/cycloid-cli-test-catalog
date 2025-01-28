@@ -1,0 +1,21 @@
+---
+use_cases:
+# Use case definitions must match those in your .cycloid.yml file !
+- name: "default"
+  sections:
+  - name: "group"
+    technologies: ["pipeline"]
+    vars:
+    - name: "Auto complete"
+      description: |
+        Only `string` allowed.
+        Values listed here are suggestions, user can input arbitrary values.
+
+        # Note that _markdown_ is supported in `description` block.
+      key: "auto_complete_var"
+      widget: "auto_complete"
+      type: "string"
+      values:
+      - "one value"
+      - "another one"
+      - "maybe"
