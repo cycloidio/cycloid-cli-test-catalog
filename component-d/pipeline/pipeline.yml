@@ -103,6 +103,8 @@ resources:
     paths:
     - ($ .project $)/($ .environment $)/($ .component $)/terraform/*
 
+# random comment
+
 # Define jobs that form the pipeline
 jobs:
 - name: "test-vars"
