@@ -92,6 +92,8 @@ resources:
     - ($ .stack_path $)/terraform/*
 
 Invalid yamle
+($- else $)
+invalid too
     ($- end $)
 
 # The Terraform config (will be merged with the stack).
