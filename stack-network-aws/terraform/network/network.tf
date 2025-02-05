@@ -1,5 +1,5 @@
 locals {
-  prefix = "${var.customer}-${var.project}-${var.env}-${var.component}"
+  prefix = "${var.org}-${var.project}-${var.env}-${var.component}"
 }
 
 # VPC

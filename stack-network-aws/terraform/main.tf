@@ -5,7 +5,7 @@ module "network" {
   component = var.component
   project   = var.project
   env       = var.env
-  customer  = var.customer
+  org       = var.org
   #####################################
 
   #. extra_tags (optional): {}
@@ -39,7 +39,7 @@ module "network" {
 #   component = var.component
 #   project   = var.project
 #   env       = var.env
-#   customer  = var.customer
+#   org  = var.org
 #   #####################################
 # 
 #   #. extra_tags (optional): {}
@@ -51,7 +51,7 @@ module "network" {
 # 
 #   #. key_pair_name: ""
 #   #+ The name of the key pair to provision to the instance
-#   key_pair_name = "${var.customer}-${var.project}-${var.env}-${var.component}"
+#   key_pair_name = "${var.org}-${var.project}-${var.env}-${var.component}"
 # 
 #   #. key_pair_public: ""
 #   #+ Public key to create

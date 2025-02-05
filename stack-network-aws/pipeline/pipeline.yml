@@ -34,7 +34,7 @@ resources:
       component: "($ .component $)"
       env: "($ .environment $)"
       project: "($ .project $)"
-      customer: "($ .organization_canonical $)"
+      org: "($ .organization_canonical $)"
 
 # The Terraform stack (will be merged with the config)
 - name: "git_stack-terraform"

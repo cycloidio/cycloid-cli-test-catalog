@@ -4,7 +4,7 @@ module "compute" {
   source    = "./module-compute"
   project   = var.project
   env       = var.env
-  customer  = var.customer
+  org       = var.org
   component = var.component
   #####################################
 

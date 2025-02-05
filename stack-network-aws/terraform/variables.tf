@@ -2,7 +2,7 @@
 variable "component" {}
 variable "env" {}
 variable "project" {}
-variable "customer" {}
+variable "org" {}
 
 # AWS variables
 variable "aws_cred" {
