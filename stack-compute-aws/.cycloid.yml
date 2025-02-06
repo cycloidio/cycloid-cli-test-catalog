@@ -1,6 +1,6 @@
 ---
 # Configuration of the Cycloid stack
-version: '4'
+version: '3'
 name: 'AWS EC2 Instance'
 canonical: stack-compute-aws
 status: private
