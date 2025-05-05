@@ -10,11 +10,11 @@ array:
     - hello
     - world
     - false
-    - 1
+    - 2
     - 1.1
-bool: false
+bool: true
 float: 0.1
-group1: EDITED
+group1: osef
 group2: osef
 integer: 1
 map:
@@ -29,4 +29,4 @@ map:
     string: string
 no_spaces: osef
 no_spaces_no_caps: osef
-string: stringValue
+string: stringValue1
