@@ -1,6 +1,7 @@
 ---
 name: "CLI e2e stackforms tests"
 canonical: "stack-e2e-stackforms"
+version: "4"
 description: |
   This stack is made for testing stackforms value update via the CLI.
 keywords:
