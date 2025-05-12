@@ -1,0 +1,17 @@
+---
+name: "StackForms array testing"
+canonical: "stack-e2e-stackforms"
+version: "4"
+description: |
+  This stack is just a way of testing array shinaningans in stackforms
+author: "Cycloid"
+config:
+  default:
+    name: "Default"
+    description: "Default pipeline usecase"
+    pipeline:
+      pipeline:
+        path: "pipeline/pipeline.yml"
+      variables:
+        path: "pipeline/variables.sample.yml"
+        destination: "($ .config_root $)/pipeline/variables.yml"

@@ -1,0 +1,125 @@
+---
+version: "2"
+use_cases:
+- name: "default"
+  sections:
+  - name: "array"
+    groups:
+    - name: "test"
+      technologies:
+      - "pipeline"
+      vars:
+      - name: "Text area"
+        key: "text_area"
+        widget: "text_area"
+        type: "array"
+        default:
+        - "hello"
+        - "world"
+        - false
+        - 1
+        - 1.1
+        - {"some": "object"}
+        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+      - name: "Text area required"
+        key: "text_area_required"
+        widget: "text_area"
+        type: "array"
+        required: true
+      - name: "dropdown of arrays"
+        key: "dropdown_arrays"
+        widget: "dropdown"
+        widget_config:
+          multiselect: false
+        type: "array"
+        default: ["some", "array", true, 1, 1.1, {"hello": "world"}]
+        values:
+        - []
+        - ["some", "array"]
+        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+      - name: "dropdown"
+        key: "dropdown"
+        widget: "dropdown"
+        widget_config:
+          multiselect: true
+        type: "array"
+        values:
+        - "hello"
+        - "world"
+        - false
+        - 1
+        - 1.1
+        - {"some": "object"}
+        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+      - name: "dropdown_required"
+        key: "dropdown_required"
+        widget: "dropdown"
+        widget_config:
+          multiselect: true
+        type: "array"
+        values:
+        - "hello"
+        - "world"
+        - false
+        - 1
+        - 1.1
+        - {"some": "object"}
+        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+      - name: "dropdown_required"
+        key: "dropdown_required_default"
+        widget: "dropdown"
+        widget_config:
+          multiselect: true
+        type: "array"
+        default: "world"
+        values:
+        - "hello"
+        - "world"
+        - false
+        - 1
+        - 1.1
+        - {"some": "object"}
+        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+      - name: "auto_complete"
+        key: "auto_complete"
+        widget: "auto_complete"
+        widget_config:
+          multiselect: true
+        type: "array"
+        values:
+        - "hello"
+        - "world"
+        - false
+        - 1
+        - 1.1
+        - {"some": "object"}
+        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+      - name: "auto_complete_required"
+        key: "auto_complete_required"
+        widget: "auto_complete"
+        widget_config:
+          multiselect: true
+        type: "array"
+        values:
+        - "hello"
+        - "world"
+        - false
+        - 1
+        - 1.1
+        - {"some": "object"}
+        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+      - name: "auto_complete_required"
+        key: "auto_complete_required_default"
+        widget: "auto_complete"
+        widget_config:
+          multiselect: true
+        type: "array"
+        default: "world"
+        values:
+        - "hello"
+        - "world"
+        - false
+        - 1
+        - 1.1
+        - {"some": "object"}
+        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
