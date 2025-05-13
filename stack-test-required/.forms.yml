@@ -24,7 +24,7 @@ use_cases:
         type: "string"
         required: true
       - name: "required_with_default"
-        key: "required"
+        key: "required_with_default"
         widget: "simple_text"
         type: "string"
         required: true
