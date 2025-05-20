@@ -85,10 +85,12 @@ jobs:
   build_logs_to_retain: 10
   plan:
   - do:
-    - get: stack
-      trigger: true
-    - get: config
-      trigger: true
+    - in_parallel:
+        steps:
+        - get: stack
+          trigger: true
+        - get: config
+          trigger: true
     - task: hello-world
       config:
         platform: linux
@@ -119,10 +121,12 @@ jobs:
   build_logs_to_retain: 10
   plan:
   - do:
-    - get: stack
-      trigger: true
-    - get: config
-      trigger: true
+    - in_parallel:
+        steps:
+        - get: stack
+          trigger: true
+        - get: config
+          trigger: true
     - *task-merge-stack-and-config
     - put: tfstate
       params:
@@ -135,18 +139,20 @@ jobs:
   build_logs_to_retain: 10
   plan:
   - do:
-    - get: stack
-      trigger: false
-      passed:
-      - terraform-plan
-    - get: config
-      trigger: false
-      passed:
-      - terraform-plan
-    - get: tfstate
-      trigger: false
-      passed:
-      - terraform-plan
+    - in_parallel:
+        steps:
+        - get: stack
+          trigger: false
+          passed:
+          - terraform-plan
+        - get: config
+          trigger: false
+          passed:
+          - terraform-plan
+        - get: tfstate
+          trigger: false
+          passed:
+          - terraform-plan
     - *task-merge-stack-and-config
     - put: tfstate
       params:
@@ -159,10 +165,12 @@ jobs:
   build_logs_to_retain: 10
   plan:
   - do:
-    - get: stack
-      trigger: false
-    - get: config
-      trigger: false
+    - in_parallel:
+        steps:
+        - get: stack
+          trigger: false
+        - get: config
+          trigger: false
     - *task-merge-stack-and-config
     - put: tfstate
       params:
