@@ -104,7 +104,7 @@ jobs:
           args:
           - -ec
           - |
-            echo "((var))" > msg.txt
+            echo "((var))" > msg/content.txt
         inputs:
         - name: stack
           path: "stack"
@@ -112,7 +112,7 @@ jobs:
           path: "config"
         outputs:
         - name: message
-          path: "msg.txt"
+          path: "msg"
 
 - name: terraform-plan
   serial: true
