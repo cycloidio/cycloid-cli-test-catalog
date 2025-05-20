@@ -1,0 +1,16 @@
+---
+version: "2"
+use_cases:
+- name: "default"
+  sections:
+  - name: "section"
+    groups:
+    - name: "group"
+      technologies:
+      - "pipeline"
+      vars:
+      - name: "Var"
+        key: "var"
+        widget: "simple_text"
+        type: "string"
+        default: "hello"
