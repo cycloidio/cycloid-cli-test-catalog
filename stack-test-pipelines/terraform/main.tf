@@ -1,5 +1,4 @@
-resource "null_resource" "default" {
-  provisioner "local-exec" {
-    command = "echo 'Hello World'"
-  }
+resource "local_file" "file" {
+  content  = "hello"
+  filename = "hello.txt"
 }
