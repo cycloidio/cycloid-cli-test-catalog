@@ -59,7 +59,7 @@ resources:
     private_key: ((($ .scs_cred_path $).ssh_key))
     ($- end $)
     paths:
-    - ($ .stack_path $)/terraform/*
+    - ($ .stack_path $)/*
 
 - name: config
   type: git
@@ -75,7 +75,7 @@ resources:
     private_key: ((($ .cr_cred_path $).ssh_key))
     ($- end $)
     paths:
-    - '($ .config_root $)/terraform/*'
+    - '($ .config_root $)/*'
 
 jobs:
 - name: hello-world
