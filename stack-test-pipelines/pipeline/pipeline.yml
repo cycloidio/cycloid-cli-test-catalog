@@ -144,7 +144,7 @@ jobs:
       passed:
       - terraform-plan
     - get: tfstate
-      trigger: ((debug_auto_apply))
+      trigger: false
       passed:
       - terraform-plan
     - *task-merge-stack-and-config
