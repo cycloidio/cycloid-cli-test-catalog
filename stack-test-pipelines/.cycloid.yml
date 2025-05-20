@@ -1,0 +1,17 @@
+---
+name: "Pipeline testing"
+canonical: "stack-test-pipeline"
+version: "4"
+description: |
+  Pipelines related test in cycloid
+author: "Cycloid"
+config:
+  default:
+    name: "Default"
+    description: "Default pipeline usecase"
+    pipeline:
+      pipeline:
+        path: "pipeline/pipeline.yml"
+      variables:
+        path: "pipeline/variables.sample.yml"
+        destination: "($ .config_root $)/pipeline/variables.yml"
