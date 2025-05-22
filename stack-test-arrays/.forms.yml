@@ -32,11 +32,11 @@ use_cases:
         widget_config:
           multiselect: false
         type: "array"
-        default: ["some", "array", true, 1, 1.1, {"hello": "world"}]
+        default: ["some", "array", true, 1, 1.1]
         values:
         - []
         - ["some", "array"]
-        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+        - ["some", "array", true, 1, 1.1]
       - name: "dropdown"
         key: "dropdown"
         widget: "dropdown"
@@ -49,8 +49,7 @@ use_cases:
         - false
         - 1
         - 1.1
-        - {"some": "object"}
-        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+        - ["some", "array", true, 1, 1.1]
       - name: "dropdown_required"
         key: "dropdown_required"
         widget: "dropdown"
@@ -63,8 +62,7 @@ use_cases:
         - false
         - 1
         - 1.1
-        - {"some": "object"}
-        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+        - ["some", "array", true, 1, 1.1]
       - name: "dropdown_required"
         key: "dropdown_required_default"
         widget: "dropdown"
@@ -78,8 +76,7 @@ use_cases:
         - false
         - 1
         - 1.1
-        - {"some": "object"}
-        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+        - ["some", "array", true, 1, 1.1]
       - name: "auto_complete"
         key: "auto_complete"
         widget: "auto_complete"
@@ -92,8 +89,7 @@ use_cases:
         - false
         - 1
         - 1.1
-        - {"some": "object"}
-        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+        - ["some", "array", true, 1, 1.1]
       - name: "auto_complete_required"
         key: "auto_complete_required"
         widget: "auto_complete"
@@ -106,8 +102,7 @@ use_cases:
         - false
         - 1
         - 1.1
-        - {"some": "object"}
-        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+        - ["some", "array", true, 1, 1.1]
       - name: "auto_complete_required"
         key: "auto_complete_required_default"
         widget: "auto_complete"
@@ -121,5 +116,4 @@ use_cases:
         - false
         - 1
         - 1.1
-        - {"some": "object"}
-        - ["some", "array", true, 1, 1.1, {"hello": "world"}]
+        - ["some", "array", true, 1, 1.1]
