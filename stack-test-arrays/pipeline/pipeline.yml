@@ -14,25 +14,25 @@ jobs:
           - -ec
           - |
             echo text_area
-            echo $(text_area)
+            echo ${text_area}
             echo text_area_required
-            echo $(text_area_required)
+            echo ${text_area_required}
             echo dropdown_arrays
-            echo $(dropdown_arrays)
+            echo ${dropdown_arrays}
             echo dropdown
-            echo $(dropdown)
+            echo ${dropdown}
             echo dropdown_required
-            echo $(dropdown_required)
+            echo ${dropdown_required}
             echo dropdown_required_default
-            echo $(dropdown_required_default)
+            echo ${dropdown_required_default}
             echo auto_complete
-            echo $(auto_complete)
+            echo ${auto_complete}
             echo auto_complete_required
-            echo $(auto_complete_required)
+            echo ${auto_complete_required}
             echo auto_complete_required_default_string
-            echo $(auto_complete_required_default_string)
+            echo ${auto_complete_required_default_string}
             echo auto_complete_required_default_array
-            echo $(auto_complete_required_default_array)
+            echo ${auto_complete_required_default_array}
         params:
           text_area: ((text_area))
           text_area_required: ((text_area_required))
