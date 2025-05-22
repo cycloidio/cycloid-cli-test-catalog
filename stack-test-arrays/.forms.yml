@@ -63,7 +63,7 @@ use_cases:
         - 1
         - 1.1
         - ["some", "array", true, 1, 1.1]
-      - name: "dropdown_required"
+      - name: "dropdown_required_default"
         key: "dropdown_required_default"
         widget: "dropdown"
         widget_config:
@@ -103,13 +103,27 @@ use_cases:
         - 1
         - 1.1
         - ["some", "array", true, 1, 1.1]
-      - name: "auto_complete_required"
-        key: "auto_complete_required_default"
+      - name: "auto_complete_required_default_string"
+        key: "auto_complete_required_default_string"
         widget: "auto_complete"
         widget_config:
           multiselect: true
         type: "array"
         default: "world"
+        values:
+        - "hello"
+        - "world"
+        - false
+        - 1
+        - 1.1
+        - ["some", "array", true, 1, 1.1]
+      - name: "auto_complete_required_default_array"
+        key: "auto_complete_required_default_array"
+        widget: "auto_complete"
+        widget_config:
+          multiselect: true
+        type: "array"
+        default: ["world"]
         values:
         - "hello"
         - "world"
