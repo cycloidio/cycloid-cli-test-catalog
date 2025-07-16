@@ -8,7 +8,6 @@
 #
 array:
     - hello
-    - world
     - false
     - 1
     - 1.1
@@ -21,12 +20,14 @@ map:
     array:
         - hello
         - world
-    bool: false
+    bool: true
     float: 0.1
+    hello: world
+    int: 1
     integer: 1
     nested:
         map: hello
     string: string
-no_spaces: osef
+no_spaces: '"osef'
 no_spaces_no_caps: osef
-string: common-tcnx
+string: myString
