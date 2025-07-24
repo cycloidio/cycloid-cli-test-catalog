@@ -8,6 +8,7 @@
 #
 array:
     - hello
+    - world
     - false
     - 1
     - 1.1
@@ -20,14 +21,12 @@ map:
     array:
         - hello
         - world
-    bool: true
+    bool: false
     float: 0.1
-    hello: world
-    int: 1
     integer: 1
     nested:
         map: hello
     string: string
 no_spaces: osef
 no_spaces_no_caps: osef
-string: myString
+string: stringValue
