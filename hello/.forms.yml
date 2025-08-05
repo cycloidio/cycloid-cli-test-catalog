@@ -1,0 +1,20 @@
+# Define the stack configuration form and organize inputs of various types into sections and groups.
+# See: https://docs.staging.cycloid.io/deploy/stackforms/file-format.html
+use_cases:
+- name: vanilla
+  sections:
+  - name: Cloud provider
+    groups:
+
+  - name: Terraform variable example
+    groups:
+    - name: Configuration
+      technologies: [terraform]
+      vars:
+      - name: "Tshirt size"
+        description: "This is a **Terraform variable example**"
+        key: module.example.tshirt_size # Module name should match the Terraform module name specified in main.tf.sample
+        type: string
+        widget: auto_complete
+        values: ["S", "M", "L", "XXL"]
+        default: "M"

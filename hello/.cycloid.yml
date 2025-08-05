@@ -1,0 +1,30 @@
+version: '4'
+name: Hello
+canonical: hello
+author: 'fbh'
+# Fill in the stack details.
+description: 'This stack contains automation to run Terraform code and manage infrastructure as code.'
+image: https://github.com/cycloidio/bootstrap-stacks/blob/master/blank-sample/thumbnail.png
+keywords:
+  - 'terraform'
+  - 'vanilla'
+technologies:
+  - technology: terraform
+    version: 1.8.2
+template: false
+# Add use cases to the stack.
+# See: https://docs.cycloid.io/manage/pipeline/multi-use-case.html#multiple-use-case
+config:
+  vanilla:
+    name: 'Basic Terraform'
+    description: 'Cloud-agnostic Terraform sample with no specific provider integration.'
+    pipeline:
+      pipeline:
+        path: 'pipeline/pipeline.yml'
+      variables:
+        path: 'pipeline/variables.sample.yml'
+        destination: '($ .config_root $)/pipeline/variables.yml'
+    terraform:
+      main:
+        path: 'terraform/main.tf.sample'
+        destination: '($ .config_root $)/terraform/main.tf'
