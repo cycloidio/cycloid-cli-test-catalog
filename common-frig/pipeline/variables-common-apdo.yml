@@ -27,6 +27,6 @@ map:
     nested:
         map: hello
     string: string
-no_spaces: osef
+no_spaces: new
 no_spaces_no_caps: osef
-string: common-ynjd
+string: stringValue
