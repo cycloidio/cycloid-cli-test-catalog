@@ -10,9 +10,9 @@ array:
     - hello
     - world
     - false
-    - 1
+    - 0
     - 1.1
-bool: false
+bool: true
 float: 0.1
 group1: osef
 group2: osef
@@ -29,4 +29,4 @@ map:
     string: string
 no_spaces: osef
 no_spaces_no_caps: osef
-string: common-qrpa
+string: stringValue1
