@@ -6,17 +6,27 @@
 # Please note that comments in sample files will have been dropped
 # due to some limitations upon files' generation.
 #
-array: []
+array:
+    - hello
+    - world
+    - false
+    - 1
+    - 1.1
 bool: false
-float: 2.2
+float: 0.1
 group1: osef
 group2: osef
-integer: 14
+integer: 1
 map:
-    bool: true
-    hello: world
-    int: 1
-    update: true
-no_spaces: update2
+    array:
+        - hello
+        - world
+    bool: false
+    float: 0.1
+    integer: 1
+    nested:
+        map: hello
+    string: string
+no_spaces: osef
 no_spaces_no_caps: osef
-string: update2
+string: stringValue
