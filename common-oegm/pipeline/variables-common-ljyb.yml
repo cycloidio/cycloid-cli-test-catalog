@@ -8,6 +8,7 @@
 #
 array:
     - hello
+    - world
     - false
     - 1
     - 1.1
@@ -17,9 +18,15 @@ group1: osef
 group2: osef
 integer: 1
 map:
-    bool: true
-    hello: world
-    int: 1
-no_spaces: osef
+    array:
+        - hello
+        - world
+    bool: false
+    float: 0.1
+    integer: 1
+    nested:
+        map: hello
+    string: string
+no_spaces: new
 no_spaces_no_caps: osef
-string: myString
+string: stringValue
