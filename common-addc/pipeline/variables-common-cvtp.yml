@@ -6,11 +6,7 @@
 # Please note that comments in sample files will have been dropped
 # due to some limitations upon files' generation.
 #
-array:
-    - hello
-    - false
-    - 1
-    - 1.1
+array: []
 bool: false
 float: 0.1
 group1: osef
@@ -20,6 +16,7 @@ map:
     bool: true
     hello: world
     int: 1
+    update: true
 no_spaces: osef
 no_spaces_no_caps: osef
-string: myString
+string: updated
