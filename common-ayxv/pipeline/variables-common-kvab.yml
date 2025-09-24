@@ -8,15 +8,15 @@
 #
 array: []
 bool: false
-float: 0.1
+float: 2.2
 group1: osef
 group2: osef
-integer: 1
+integer: 14
 map:
     bool: true
     hello: world
     int: 1
     update: true
-no_spaces: osef
+no_spaces: update2
 no_spaces_no_caps: osef
-string: updated
+string: update2
