@@ -77,9 +77,9 @@ module "vm" {
     }
   ]
   sg_name      = ""
-  subnet_id    = "asdasdasds"
+  subnet_id    = "dasdas"
   vm_disk_size = 20
   vm_disk_type = "gp2"
-  vpc_id       = "dasdasd"
+  vpc_id       = "dasdasda"
 }
 
