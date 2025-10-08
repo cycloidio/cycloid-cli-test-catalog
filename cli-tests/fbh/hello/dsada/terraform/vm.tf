@@ -80,6 +80,6 @@ module "vm" {
   subnet_id    = "dsada"
   vm_disk_size = 20
   vm_disk_type = "gp2"
-  vpc_id       = "dsda"
+  vpc_id       = "dasdas"
 }
 
