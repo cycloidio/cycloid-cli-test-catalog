@@ -16,6 +16,8 @@ jobs:
         - |
           echo ${MESSAGE}
 
-          ($ default .invalid "" $)
+          ($ default "" .invalid $)
+          o
+
       params:
         MESSAGE: "((message))"
