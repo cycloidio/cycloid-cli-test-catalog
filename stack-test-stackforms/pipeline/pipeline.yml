@@ -15,8 +15,5 @@ jobs:
         - "-ec"
         - |
           echo ${MESSAGE}
-
-          ($ default "" .invalid $)
-
       params:
         MESSAGE: "((message))"
