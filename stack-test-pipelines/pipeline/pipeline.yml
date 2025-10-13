@@ -49,14 +49,14 @@ resources:
   type: git
   icon: github-circle
   source:
-    uri: ($ .scs_url $)
-    branch: ($ .scs_branch $)
-    ($- if eq .scs_cred_type "basic_auth" $)
-    username: ((($ .scs_cred_path $).username))
-    password: ((($ .scs_cred_path $).password))
+    uri: ($ .catalog_repository_url $)
+    branch: ($ .catalog_repository_branch $)
+    ($- if eq .catalog_repository_credential_type "basic_auth" $)
+    username: ((($ .catalog_repository_credential_path $).username))
+    password: ((($ .catalog_repository_credential_path $).password))
     ($- end $)
-    ($- if eq .scs_cred_type "ssh" $)
-    private_key: ((($ .scs_cred_path $).ssh_key))
+    ($- if eq .catalog_repository_credential_type "ssh" $)
+    private_key: ((($ .catalog_repository_credential_path $).ssh_key))
     ($- end $)
     paths:
     - ($ .stack_path $)/*
