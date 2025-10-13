@@ -55,7 +55,7 @@ resources:
     username: ((($ .catalog_repository_credential_path $).username))
     password: ((($ .catalog_repository_credential_path $).password))
     ($- end $)
-    ($- if eq .catalog_repository_credential_type "ssh" $)
+    ($- if eq (get . "catalog_repository_credential_type") "ssh" $)
     private_key: ((($ .catalog_repository_credential_path $).ssh_key))
     ($- end $)
     paths:
