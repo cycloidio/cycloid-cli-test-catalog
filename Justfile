@@ -2,4 +2,4 @@ push:
     git add .
     git commit -m update
     git push origin stacks
-    cy comp create -p fbh -e test -c test-e2e -s cli-tests:stack-e2e-stackforms -u default
+    cy comp create --update -p fbh -e test -c test-e2e -s cli-tests:stack-e2e-stackforms -u default
