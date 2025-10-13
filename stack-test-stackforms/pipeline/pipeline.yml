@@ -15,5 +15,7 @@ jobs:
         - "-ec"
         - |
           echo ${MESSAGE}
+
+          ($ get . "notexists" $)
       params:
         MESSAGE: "((message))"
