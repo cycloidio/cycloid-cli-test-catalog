@@ -40,7 +40,7 @@ resources:
   source:
     backend_type: http
     backend_config:
-      address: '($ .api_url $)/inventory?jwt=($ .inventory_jwt $)'
+      address: '($ .api_url $)/inventory?jwt=($ get . "inventory_jwt" $)'
       skip_cert_verification: true
     env_name: ($ .environment $)
 
