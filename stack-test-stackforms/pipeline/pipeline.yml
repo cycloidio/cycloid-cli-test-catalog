@@ -16,6 +16,6 @@ jobs:
         - |
           echo ${MESSAGE}
 
-          ($ get . "notexists" $)
+          ($ get . "notexists" | default "tutu" $)
       params:
         MESSAGE: "((message))"
