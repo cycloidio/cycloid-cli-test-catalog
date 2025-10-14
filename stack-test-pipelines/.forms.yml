@@ -8,12 +8,4 @@ use_cases:
     - name: "group"
       technologies:
       - "pipeline"
-      vars:
-      - name: "Var"
-        key: "var"
-        widget: "text_area"
-        type: "map"
-      - name: "Var"
-        key: "some"
-        widget: "text_area"
-        type: "string"
+      vars: []

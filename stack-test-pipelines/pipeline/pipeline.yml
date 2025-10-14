@@ -61,23 +61,6 @@ resources:
     paths:
     - ($ .stack_path $)/*
 
-# The Terraform stack (will be merged with the config).
-- name: stack
-  type: git
-  icon: github-circle
-  source:
-    uri: ($ .catalog_repository_url $)
-    branch: ($ .catalog_repository_branch $)
-    ($- if eq (get . "catalog_repository_credential_type") "basic_auth" $)
-    username: ((($ .catalog_repository_credential_path $).username))
-    password: ((($ .catalog_repository_credential_path $).password))
-    ($- end $)
-    ($- if eq (get . "catalog_repository_credential_type") "ssh" $)
-    private_key: ((($ .catalog_repository_credential_path $).ssh_key))
-    ($- end $)
-    paths:
-    - ($ .stack_path $)/*
-
 - name: config
   type: git
   icon: github-circle
