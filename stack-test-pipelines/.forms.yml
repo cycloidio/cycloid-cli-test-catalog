@@ -11,6 +11,5 @@ use_cases:
       vars:
       - name: "Var"
         key: "var"
-        widget: "simple_text"
-        type: "string"
-        default: "hello"
+        widget: "text_area"
+        type: "map"

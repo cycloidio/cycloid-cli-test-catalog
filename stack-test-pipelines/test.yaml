@@ -1,0 +1,3 @@
+---
+test: "($ .var $)"
+default: "($ default .var \"toto\" $)"
