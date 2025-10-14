@@ -1,3 +1,4 @@
 ---
 test: "($ .var $)"
-default: "($ default .var \"toto\" $)"
+default: |-
+  azd ($ default .var "toto" $)
