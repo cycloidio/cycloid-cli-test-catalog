@@ -2,3 +2,5 @@
 test: "($ .var $)"
 default: |-
   azd ($ default .var "toto" $)
+
+some: "($ .some $)"
